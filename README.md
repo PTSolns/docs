@@ -1,5 +1,5 @@
 # PTSolns Documentation Repository
-This repository contains supporting material for PTSolns products, including datasheets, 3D & Fritzing models, photographs & Images, code & sketches, and others whenever available/applicable. To request a datasheet/model/etc. that is not contained in this repository please fill out the <a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/pages/contact">Contact Us</a> form.
+This repository contains supporting material for PTSolns products, including datasheets, 3D & Fritzing models, photographs & images, code & sketches, and others whenever available/applicable. To request a datasheet/model/etc. that is not contained in this repository please fill out the <a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/pages/contact">Contact Us</a> form.
 
 # How To Use This Repository
 This repository is organized by product SKU. To find a datasheet or other supporting material of a particular product click the corresponding folder. Various different documents and files are organized by category within subfolders.
