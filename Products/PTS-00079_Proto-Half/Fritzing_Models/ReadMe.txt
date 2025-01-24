@@ -1,0 +1,1 @@
+Made for Fritzing version 1.0.3 and later.
