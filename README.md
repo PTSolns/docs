@@ -35,9 +35,13 @@ This repository is organized by product SKU. To find a datasheet or other suppor
 	<br>
 	<a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00158_Pico_Base_Proto" style="text-decoration:none">PTS-00158_Pico_Base_Proto</a>
 	<br>
+	<a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00165_ESP32_microWatt" style="text-decoration:none">PTS-00165_ESP32_microWatt</a>
+	<br>
 	<a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00166_I2C_Backpack" style="text-decoration:none">PTS-00166_I2C_Backpack</a>
 	<br>
 	<a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00194_Uno_R3_Plus" style="text-decoration:none">PTS-00194_Uno_R3_plus</a>
 	<br>
 	<a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00196_Nano_Flip" style="text-decoration:none">PTS-00196_Nano_Flip</a>
+	<br>
+	<a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00198_Pico_BoB" style="text-decoration:none">PTS-00198_Pico_BoB</a>
     
