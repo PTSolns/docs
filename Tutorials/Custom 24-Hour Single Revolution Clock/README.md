@@ -1,0 +1,1 @@
+[See the Tutorial on Maker.io](https://www.digikey.ca/en/maker/projects/custom-24-hour-single-revolution-clock/c3deb587da4c4efda6d84548d07adac8)
