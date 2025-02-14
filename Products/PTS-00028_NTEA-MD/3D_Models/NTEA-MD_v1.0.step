@@ -1,9 +1,14 @@
 ISO-10303-21;
 HEADER;
-FILE_DESCRIPTION(('KiCad electronic assembly'),'2;1');
-FILE_NAME('PTSolns_Nano_Terminal.step','2024-03-14T19:02:22',('Pcbnew'),
-  ('Kicad'),'Open CASCADE STEP processor 7.6','KiCad to STEP converter',
-  'Unknown');
+FILE_DESCRIPTION(('PTSolns NTEA-MD'),'2;1');
+FILE_NAME(
+	'PTSolns_NTEA-MD.step',
+	'2024-03-14T19:02:22',
+	('PTSolns'),
+	(''),
+	'v1.0',
+	'',
+	'');
 FILE_SCHEMA(('AUTOMOTIVE_DESIGN { 1 0 10303 214 1 1 1 1 }'));
 ENDSEC;
 DATA;
@@ -15,7 +20,7 @@ DATA;
 #4 = PRODUCT_DEFINITION_SHAPE('','',#5);
 #5 = PRODUCT_DEFINITION('design','',#6,#9);
 #6 = PRODUCT_DEFINITION_FORMATION('','',#7);
-#7 = PRODUCT('PTSolns_Nano_Terminal 1','PTSolns_Nano_Terminal 1','',(#8)
+#7 = PRODUCT('PTSolns_NTEA-MD','PTSolns_NTEA-MD','',(#8)
   );
 #8 = PRODUCT_CONTEXT('',#2,'mechanical');
 #9 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
@@ -8184,8 +8189,8 @@ GLOBAL_UNIT_ASSIGNED_CONTEXT((#6597,#6598,#6599)) REPRESENTATION_CONTEXT
 #6602 = PRODUCT_DEFINITION_SHAPE('','',#6603);
 #6603 = PRODUCT_DEFINITION('design','',#6604,#6607);
 #6604 = PRODUCT_DEFINITION_FORMATION('','',#6605);
-#6605 = PRODUCT('_autosave-PTSolns_Nano_Terminal PCB',
-  '_autosave-PTSolns_Nano_Terminal PCB','',(#6606));
+#6605 = PRODUCT('PTSolns_NTEA-MD',
+  'PTSolns_NTEA-MD','',(#6606));
 #6606 = PRODUCT_CONTEXT('',#2,'mechanical');
 #6607 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
 #6608 = CONTEXT_DEPENDENT_SHAPE_REPRESENTATION(#6609,#6611);
