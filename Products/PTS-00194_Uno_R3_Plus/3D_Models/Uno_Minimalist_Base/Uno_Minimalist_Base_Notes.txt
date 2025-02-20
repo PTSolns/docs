@@ -1,0 +1,21 @@
+Feb 19, 2025
+
+Uno Minimalist Base
+
+Compatible with the Uno series.
+
+This base prints in under an hour. We used PLA, but other material should work fine.
+
+Base can be mounted as it has two M3 holes.
+
+There are four M2.5 mounting standoffs. It is not required to install brass nuts into these to use the Base, but it is nice.
+Use M2.5 brass insert nuts and matching screws. 
+
+To install the brass inserts:
+- Place nut over tip of soldering iron (pointy tip). Let heat up for just a few seconds.
+- Make sure the up side, is down on the iron, or the nut will be installed upside down.
+- Gently press the nut into the 3D printed standoff. Don't push all the way, stop when the nut is about 1mm out.
+- Use a small piece of PCB or something else flat and firm to press the nut in the rest of the way.
+- Reheat with iron if it cooled too much. Go slow and low heat.
+- Start with the two standoffs on side of the ICSP header. These have a larger base and are less likly to melt.
+- The other two standoffs closer to the USB-C port have a thinner base. Be careful these melt easily.
