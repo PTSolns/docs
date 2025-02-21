@@ -62,7 +62,7 @@ Amazon Canada distributes PTSolns products within Canada. See the [PTSolns Amazo
 <br>
 
 ## Certifications  
-Various product certifications can be found [here](https://github.com/PTSolns/docs/tree/main/Certifications).
+Various product certifications can be found [here](https://cert.ptsolns.com/).
 
 
   <br>
