@@ -55,7 +55,7 @@ DigiKey Electronics distributes PTSolns products in 180+ countries. See the [PTS
 <br>
 
 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/m/PTSolns.html#/filter:ss_attr_manufacturer:PTSolns" style="text-decoration:none">
-            <img src="/Logo/Jameco.jpg" alt="Jameco logo" width="130" height="58">
+            <img src="/Logo/Jameco.jpg" alt="Jameco logo" width="130" height="36">
 	 </a>	
 	 
 Jameco Electronics distributes PTSolns products within North America. See the [PTSolns Jameco Vendor Page](https://www.jameco.com/m/PTSolns.html#/filter:ss_attr_manufacturer:PTSolns) for more details.  
