@@ -37,6 +37,8 @@ This repository is organized by product SKU. To find a datasheet or other suppor
 | PTS-00194-201 | Uno R3+ | [GitHub](https://github.com/PTSolns/docs/tree/main/Products/PTS-00194_Uno_R3_Plus) | [DigiKey](https://www.digikey.com/short/1b9r278n) &nbsp;&nbsp; [Jameco](https://www.jameco.com/z/PTS-00194-201-PTSolns-Uno-ATmega328P-Microcontroller-Development-Board-Uno-R3-Plus_2770143.html) &nbsp;&nbsp; [Amazon.ca](https://a.co/d/7z8PehF) | 
 | PTS-00196-201 | Nano Flip | [GitHub](https://github.com/PTSolns/docs/tree/main/Products/PTS-00196_Nano_Flip) | [DigiKey](https://www.digikey.com/short/v8v4tp9c) &nbsp;&nbsp; [Jameco](https://www.jameco.com/z/PTS-00196-201-PTSolns-Nano-ATmega328P-Microcontroller-Development-Board-Nano-Flip_2770151.html) &nbsp;&nbsp; [Amazon.ca](https://www.amazon.ca/dp/B0DBMVYP39?ref_=cm_sw_r_cp_ud_dp_HEH0ASSXVR05YJK3THMP&skipTwisterOG=1) | 
 | PTS-00198-211 | Pico BoB Kit | [GitHub](https://github.com/PTSolns/docs/tree/main/Products/PTS-00198_Pico_BoB) | [DigiKey](https://www.digikey.com/short/qn7dd00b) &nbsp;&nbsp; [Jameco](https://www.jameco.com/z/PTS-00198-211-PTSolns-Breakout-Board-BoB-for-RPi-Pico-Boards-Pico-BoB-Kit_2770159.html)&nbsp;&nbsp; [Amazon.ca](https://a.co/d/510fJOw) |
+| PTS-00199-211 | microWatt Proto Kit | [GitHub](https://github.com/PTSolns/docs/tree/main/Products/PTS-00199_microWatt_Proto) | [DigiKey](https://www.digikey.com/short/wnbvz9tf) |
+
 
 <br>
 
