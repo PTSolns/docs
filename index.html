@@ -102,7 +102,7 @@ thead th {
 .product-container img {
     opacity: 0;
     position: absolute;
-    top: 100%;
+    top: 80px;
     left: 0;
     z-index: 1;
     width: 300px;
@@ -132,10 +132,80 @@ thead th {
     z-index: 2; /* Ensure it appears above the image */
 }
 
-/* Show the image and product name when hovering over the name cell */
+/* Style for description box */
+.product-description {
+    opacity: 0;
+    position: absolute;
+    top: calc(20px); /* Position below image with consistent spacing */
+    left: 0;
+    width: calc(300px - 20px); /* Image width minus border and padding */
+    background-color: white;
+    border: 3px solid #1E89AF;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    text-align: left;
+}
+
+/* Show the image, product name and description when hovering over the name cell */
 td:nth-child(2):hover .product-container img,
-td:nth-child(2):hover .product-container .product-name-overlay {
+td:nth-child(2):hover .product-container .product-name-overlay,
+td:nth-child(2):hover .product-container .product-description {
     opacity: 1;
+}
+
+/* Style for GitHub popup */
+.github-popup {
+    position: relative;
+    display: inline-block;
+}
+
+.github-popup-content {
+    opacity: 0;
+    position: absolute;
+    background-color: white;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 2px solid #1E89AF;
+    border-radius: 5px;
+    padding: 5px;
+    left: 0;
+    top: 100%;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.github-popup:hover .github-popup-content {
+    opacity: 1;
+    transition-delay: 0.5s; /* Delay visibility by 1.5s */
+    pointer-events: none;
+    animation: enablePointer 0.5s forwards;
+}
+
+@keyframes enablePointer {
+    from { pointer-events: none; }
+    to { pointer-events: auto; }
+}
+
+.github-popup-content a {
+    color: black;
+    padding: 5px 10px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.github-popup-content a:hover {
+    background-color: #1E89AF;
+    color: white;
+}
+
+.github-popup:hover .github-popup-content {
+    display: block;
 }
 </style>
 </head>
@@ -173,9 +243,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">NTEA-LG Kit</span>
                         <span class="product-name-overlay">NTEA-LG Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00021_NTEA-LG/Images/PTS-00021-211_Cover.jpg" alt="NTEA-LG Kit">
+                        <div class="product-description">Breakout Board BoB for Nano Development Board NTEA-LG Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00021_NTEA-LG">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00021_NTEA-LG">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00021_NTEA-LG/Datasheets/Datasheet_PTS-00021_26_28_NTEA-Series_Kit.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00021_NTEA-LG/3D_Models/NTEA-LG_v1.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/02nnpbht">DigiKey</a> 
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00021-211-PTSolns-Breakout-Board-BoB-Kit-for-Nano-Development-Board-Large-Format-Kit-_2769999.html">Jameco</a>
@@ -189,9 +268,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">NTEA-SM Kit</span>
                         <span class="product-name-overlay">NTEA-SM Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00026_NTEA-SM/Images/PTS-00026-211_Cover.jpg" alt="NTEA-SM Kit">
+                        <div class="product-description">Breakout Board BoB for Nano Development Board NTEA-SM Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00026_NTEA-SM">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00026_NTEA-SM">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00026_NTEA-SM/Datasheets/Datasheet_PTS-00021_26_28_NTEA-Series_Kit.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00026_NTEA-SM/3D_Models/NTEA-SM_v1.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/fh3fvpzv">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00026-211-PTSolns-Breakout-Board-BoB-Kit-for-Nano-Development-Board-Small-Format-Kit-_2770007.html">Jameco</a>
@@ -205,9 +293,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">NTEA-MD Kit</span>
                         <span class="product-name-overlay">NTEA-MD Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00028_NTEA-MD/Images/PTS-00028-211_Cover.jpg" alt="NTEA-MD Kit">
+                        <div class="product-description">Breakout Board BoB for Nano Development Board NTEA-MD Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00028_NTEA-MD">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00028_NTEA-MD">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00028_NTEA-MD/Datasheets/Datasheet_PTS-00021_26_28_NTEA-Series_Kit.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00028_NTEA-MD/3D_Models/NTEA-MD_v1.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/q9z5h4wf">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00028-211-PTSolns-Breakout-Board-BoB-Kit-for-Nano-Development-Board-Medium-Format-Kit-_2770015.html">Jameco</a>
@@ -221,9 +318,19 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Proto-Full</span>
                         <span class="product-name-overlay">Proto-Full</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/Images/PTS-00075-201_Cover.jpg" alt="Proto-Full">
+                        <div class="product-description">General Purpose Through Hole Prototyping Board Proto-Full</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00075_Proto-Full">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00075_Proto-Full">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/Datasheets/Datasheet_PTS-00075_Proto-Full.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/3D_Models/Proto-Full_v2.1.step">3D Model</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/Fritzing_Models/Proto-Full_V2.1.fzpz">Fritzing Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/7wqm3jhv">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00075-201-PTSolns-General-Purpose-Through-Hole-Prototyping-Board-Proto-Full_2770023.html">Jameco</a>
@@ -237,9 +344,19 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Proto-Half</span>
                         <span class="product-name-overlay">Proto-Half</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/Images/PTS-00079-201_Cover.jpg" alt="Proto-Half">
+                        <div class="product-description">General Purpose Through Hole Prototyping Board Proto-Half</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00079_Proto-Half">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00079_Proto-Half">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/Datasheets/Datasheet_PTS-00079_Proto-Half.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/3D_Models/Proto-Half_v2.1.step">3D Model</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/Fritzing_Models/Proto-Half_v2.1.fzpz">Fritzing Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/mmp35jz3">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00079-201-PTSolns-General-Purpose-Through-Hole-Prototyping-Board-Proto-Half_2770031.html">Jameco</a>
@@ -253,9 +370,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">ESP Master Key</span>
                         <span class="product-name-overlay">ESP Master Key</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Images/PTS-00099-201_Cover.jpg" alt="ESP Master Key">
+                        <div class="product-description">Adapter for Common Development Boards ESP Master Key</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00099_ESP_Master_Key">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00099_ESP_Master_Key">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Datasheets/Datasheet_PTS-00099_ESP_Master_Key.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/3D_Models/ESP_Master_Key_v2.1.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/49b5rctm">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00099-201-PTSolns-Adapter-for-Common-Development-Boards-ESP-Master-Key_2770039.html">Jameco</a>
@@ -269,9 +395,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">ESP Master Key Kit</span>
                         <span class="product-name-overlay">ESP Master Key Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Images/PTS-00099-211_Cover.jpg" alt="ESP Master Key Kit">
+                        <div class="product-description">Adapter for Common Development Boards ESP Master Key Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00099_ESP_Master_Key">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00099_ESP_Master_Key">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Datasheets/Datasheet_PTS-00099_ESP_Master_Key_Kit.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/3D_Models/ESP_Master_Key_v2.1.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/h9hjzqtn">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00099-211-PTSolns-Adapter-for-Common-Development-Boards-ESP-Master-Key-Kit_2770047.html">Jameco</a>
@@ -285,9 +420,17 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Screwdriver Set</span>
                         <span class="product-name-overlay">Screwdriver Set</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00134_Screwdriver_Set/Images/PTS-00134-001_Cover.jpg" alt="Screwdriver Set">
+                        <div class="product-description">Precision S2 Magnetic 25-in-1 Screwdriver Set</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00134_Screwdriver_Set">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00134_Screwdriver_Set">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00134_Screwdriver_Set/Datasheets/Datasheet_PTS-00134_Screwdriver_Set.pdf">Datasheet</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/nchmvnff">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00134-001-PTSolns-Precision-S2-Magnetic-25-in-1-Screwdriver-Set_2770055.html">Jameco</a>
@@ -301,9 +444,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Proto-N2RF</span>
                         <span class="product-name-overlay">Proto-N2RF</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00135_Proto-N2RF/Images/PTS-00135-201_Cover.jpg" alt="Proto-N2RF">
+                        <div class="product-description">Nano and nRF24L01+ Through Hole Prototyping Board Proto-N2RF</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00135_Proto-N2RF">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00135_Proto-N2RF">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00135_Proto-N2RF/Datasheets/Datasheet_PTS-00135_Proto-N2RF.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00135_Proto-N2RF/3D_Models/Proto-N2RF_v2.1.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/32bvbcmr">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00135-201-PTSolns-Nano-and-nRF24L01-Through-Hole-Prototyping-Board-Proto-N2RF_2770063.html">Jameco</a>
@@ -317,9 +469,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">LoRa Key Kit</span>
                         <span class="product-name-overlay">LoRa Key Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00137_LoRa_Key/Images/PTS_00137_211_Cover.JPG" alt="LoRa Key Kit">
+                        <div class="product-description">Breakout Board BoB for Common LoRa Modules LoRa Key Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00137_LoRa_Key">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00137_LoRa_Key">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00137_LoRa_Key/Datasheets/Datasheet_PTS-00137_LoRa_Key_Kit.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00137_LoRa_Key/3D_Models/LoRa_Key_v2.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/b8ccd27v">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00137-211-PTSolns-Breakout-Board-BoB-for-Common-LoRa-Modules-LoRa-Key-Kit_2770071.html">Jameco</a>
@@ -333,9 +494,19 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Proto-Shield Kit</span>
                         <span class="product-name-overlay">Proto-Shield Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/Images/PTS-00153-211_Cover.jpg" alt="Proto-Shield Kit">
+                        <div class="product-description">Prototyping Shield for Uno Boards Proto-Shield Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00153_Proto-Shield">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00153_Proto-Shield">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/Datasheets/Datasheet_PTS-00153_Proto-Shield.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/3D_Models/Proto-Shield_V2.0.step">3D Model</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/Fritzing_Models/Proto-Shield_V2.0.fzpz">Fritzing Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/vb8m5dh5">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00153-211-PTSolns-Prototyping-Shield-for-Uno-Boa_2770079.html">Jameco</a>
@@ -349,9 +520,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">NRF-Shield Kit</span>
                         <span class="product-name-overlay">NRF-Shield Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00154_NRF-Shield/Images/PTS-00154-211_Cover.jpg" alt="NRF-Shield Kit">
+                        <div class="product-description">nRF24L01+ RF Shield for Uno Boards NRF-Shield Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00154_NRF-Shield">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00154_NRF-Shield">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00154_NRF-Shield/Datasheets/Datasheet_PTS-00154_NRF-Shield.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00154_NRF-Shield/3D_Models/NRF-Shield_v2.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/vn0ffcm0">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00154-211-PTSolns-nRF24L01-RF-Shield-for-Uno-Boards-NRF-Shield-Kit_2770087.html">Jameco</a>
@@ -365,9 +545,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">ESP BoB Kit</span>
                         <span class="product-name-overlay">ESP BoB Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00155_ESP_BoB/Images/PTS-00155-211_Cover.jpg" alt="ESP BoB Kit">
+                        <div class="product-description">Breakout Board BoB for common ESP Based Boards ESP BoB Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00155_ESP_BoB">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00155_ESP_BoB">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00155_ESP_BoB/Datasheets/Datasheet_PTS-00155_ESP_BoB_Kit.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00155_ESP_BoB/3D_Models/ESP_BoB_v1.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/fp18qznv">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00155-211-PTSolns-Breakout-Board-BoB-for-common-ESP-Based-Boards-ESP-BoB-Kit_2770095.html">Jameco</a>
@@ -381,9 +570,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Interface Shield Kit</span>
                         <span class="product-name-overlay">Interface Shield Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00156_Interface-Shield/Images/PTS-00156-211_Cover.jpg" alt="Interface Shield Kit">
+                        <div class="product-description">LCD Button LED Shield for Uno Boards Interface Shield Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00156_Interface-Shield">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00156_Interface-Shield">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00156_Interface-Shield/Datasheets/Datasheet_PTS-00156_Interface-Shield_Kit.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00156_Interface-Shield/3D_Models/Interface_Shield_v1.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/43hbv424">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00156-211-PTSolns-LCD-Button-LED-Shield-for-Uno-Boards-Interface-Shield-Kit_2770103.html">Jameco</a>
@@ -397,9 +595,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Pico Base</span>
                         <span class="product-name-overlay">Pico Base</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00157_Pico_Base/Images/PTS-00157-201_Cover.jpg" alt="Pico Base">
+                        <div class="product-description">Expansion Board for RPi Pico Family Pico Base</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00157_Pico_Base">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00157_Pico_Base">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00157_Pico_Base/Datasheets/Datasheet_PTS-00157_Pico_Base.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00157_Pico_Base/3D_Models/Pico_Base_v2.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/0vb91p93">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00157-201-PTSolns-Expansion-Board-for-RPi-Pico-Family-Pico-Base_2770111.html">Jameco</a>
@@ -413,9 +620,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Pico Base Proto</span>
                         <span class="product-name-overlay">Pico Base Proto</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00158_Pico_Base_Proto/Images/PTS-00158-201_Cover.jpg" alt="Pico Base Proto">
+                        <div class="product-description">Expansion Board for RPi Pico Family Pico Base + Proto</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00158_Pico_Base_Proto">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00158_Pico_Base_Proto">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00158_Pico_Base_Proto/Datasheets/Datasheet_PTS-00158_Pico_Base_Proto.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00158_Pico_Base_Proto/3D_Models/Pico_Base_Proto_v2.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/8414w459">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00158-201-PTSolns-Expansion-Board-for-RPi-Pico-Family-Pico-Base-Proto_2770119.html">Jameco</a>
@@ -429,9 +645,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">ESP32 microWatt Kit</span>
                         <span class="product-name-overlay">ESP32 microWatt Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/Images/PTS-00165_211_Cover.JPG" alt="ESP32 microWatt Kit">
+                        <div class="product-description">ESP32 Microcontroller Development Board ESP32 microWatt</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00165_ESP32_microWatt">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00165_ESP32_microWatt">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/Datasheets/Datasheet_PTS-00165_ESP32_microWatt.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/3D_Models/ESP32_microWatt_v2.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/945dfh9n">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00165-211-PTSolns-ESP32-Microcontroller-Development-Board-ESP32-microWatt_2770127.html">Jameco</a>
@@ -445,9 +670,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">I2C Backpack Kit</span>
                         <span class="product-name-overlay">I2C Backpack Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00166_I2C_Backpack/Images/PTS-00166-211_Cover.jpg" alt="I2C Backpack Kit">
+                        <div class="product-description">I2C QWIIC Backpack for 16-Pin 1602 / 2004 LCD Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00166_I2C_Backpack">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00166_I2C_Backpack">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00166_I2C_Backpack/Datasheets/Datasheet_PTS-00166_I2C_Backpack_Kit.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00166_I2C_Backpack/3D_Models/PTSolns_I2C_Backpack_V1.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/zw82d2v9">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00166-211-PTSolns-I2C-QWIIC-Backpack-for-16-Pin-1602-2004-LCD-Kit_2770135.html">Jameco</a>
@@ -461,9 +695,19 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Uno R3+</span>
                         <span class="product-name-overlay">Uno R3+</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/Images/PTS-00194-201_Cover.jpg" alt="Uno R3+">
+                        <div class="product-description">Uno ATmega328P Microcontroller Development Board Uno R3+</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00194_Uno_R3_Plus">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00194_Uno_R3_Plus">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/Datasheets/Datasheet_PTS-00194_Uno_R3_plus.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/3D_Models/Uno_R3.step">3D Model</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/Fritzing_Models/Uno-R3-V2-1.fzpz">Fritzing Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/1b9r278n">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00194-201-PTSolns-Uno-ATmega328P-Microcontroller-Development-Board-Uno-R3-Plus_2770143.html">Jameco</a>
@@ -477,9 +721,19 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Nano Flip</span>
                         <span class="product-name-overlay">Nano Flip</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/Images/PTS-00196-201_Cover.jpg" alt="Nano Flip">
+                        <div class="product-description">Nano ATmega328P Microcontroller Development Board Nano Flip</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00196_Nano_Flip">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00196_Nano_Flip">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/Datasheets/Datasheet_PTS-00196_Nano_Flip.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/3D_Models/Nano_Flip_v2.0.step">3D Model</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/Fritzing_Models/Nano-Flip-V2-0.fzpz">Fritzing Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/v8v4tp9c">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00196-201-PTSolns-Nano-ATmega328P-Microcontroller-Development-Board-Nano-Flip_2770151.html">Jameco</a>
@@ -493,9 +747,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">Pico BoB Kit</span>
                         <span class="product-name-overlay">Pico BoB Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00198_Pico_BoB/Images/PTS-00198-211_Cover.jpg" alt="Pico BoB Kit">
+                        <div class="product-description">Breakout Board BoB for RPi Pico Boards Pico BoB Kit</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00198_Pico_BoB">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00198_Pico_BoB">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00198_Pico_BoB/Datasheets/Datasheet_PTS-00198_Pico_BoB.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00198_Pico_BoB/3D_Models/Pico_BoB.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/qn7dd00b">DigiKey</a>
                 &nbsp 
                 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00198-211-PTSolns-Breakout-Board-BoB-for-RPi-Pico-Boards-Pico-BoB-Kit_2770159.html">Jameco</a>
@@ -509,9 +772,18 @@ td:nth-child(2):hover .product-container .product-name-overlay {
                         <span class="name-text">MicroWatt Proto Kit</span>
                         <span class="product-name-overlay">MicroWatt Proto Kit</span>
                         <img src="https://docs.ptsolns.com/Products/PTS-00199_microWatt_Proto/Images/PTS-00199-211_Cover.JPG" alt="MicroWatt Proto Kit">
+                        <div class="product-description">Prototyping board with central rails for ESP32 microWatt</div>
                     </div>
                 </td>
-                <td><a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00199_microWatt_Proto">GitHub</a></td>
+                <td>
+                    <div class="github-popup">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00199_microWatt_Proto">GitHub</a>
+                        <div class="github-popup-content">
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00199_microWatt_Proto/Datasheets/Datasheet_PTS-00199_microWatt_Proto.pdf">Datasheet</a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00199_microWatt_Proto/3D_Models/microWatt_Proto_V1.0.step">3D Model</a>
+                        </div>
+                    </div>
+                </td>
                 <td><a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/wnbvz9tf">DigiKey</a></td>
             </tr>
         </tbody>
