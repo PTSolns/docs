@@ -6,12 +6,6 @@ This repository contains supporting material for PTSolns products, including dat
 <br>
 <br>
 
-## How To Use This Repository
-
-This repository is organized by product SKU. To find a datasheet or other supporting material of a particular product, click the corresponding link below marked as "GitHub." This will open to the product subfolder within the repository. Various different documents and files are organized by category within subfolders.
-<br>
-<br>
-
 ## PTSolns Products
 
 | SKU              | Name                 | Docs                                   | Sales                                        |
@@ -49,7 +43,7 @@ Here you can find custom [Tutorials & Projects](https://github.com/PTSolns/docs/
 
 ## Distributors
 <a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/en/supplier-centers/ptsolns-pylon-technology-solutions" style="text-decoration:none">
-            <img src="/Logo/DigiKey_rgb.jpg" alt="DigiKey logo" width="130" height="58">
+            <img src="/Logo/Distributors/DigiKey.jpg" alt="DigiKey logo" width="130" height="58">
 	 </a>	
 	 
 DigiKey Electronics distributes PTSolns products in 180+ countries. See the [PTSolns DigiKey Vendor Page](https://www.digikey.com/en/supplier-centers/ptsolns-pylon-technology-solutions) for more details.  
@@ -57,7 +51,7 @@ DigiKey Electronics distributes PTSolns products in 180+ countries. See the [PTS
 <br>
 
 <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/m/PTSolns.html#/filter:ss_attr_manufacturer:PTSolns" style="text-decoration:none">
-            <img src="/Logo/Jameco.jpg" alt="Jameco logo" width="130" height="36">
+            <img src="/Logo/Distributors/Jameco.jpg" alt="Jameco logo" width="130" height="58">
 	 </a>	
 	 
 Jameco Electronics distributes PTSolns products within North America. See the [PTSolns Jameco Vendor Page](https://www.jameco.com/m/PTSolns.html#/filter:ss_attr_manufacturer:PTSolns) for more details.  
@@ -65,13 +59,13 @@ Jameco Electronics distributes PTSolns products within North America. See the [P
 
 <br>
 <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.ca/ptsolns" style="text-decoration:none">
-            <img src="/Logo/Amazon_ca.jpg" alt="Amazon CA logo" width="130" height="58">
+            <img src="/Logo/Distributors/Amazon_ca.jpg" alt="Amazon CA logo" width="130" height="58">
 	 </a>
 
 Amazon Canada distributes PTSolns products within Canada. See the [PTSolns Amazon Canada Storefront](https://www.amazon.ca/ptsolns) for more details.  
 <br>
 <a target="_blank" rel="noopener noreferrer" href="[https://www.amazon.ca/ptsolns](https://www.amazon.com/stores/PylonTechnologySolutions/page/F6F49188-3463-4718-97CA-01229431C7BA)" style="text-decoration:none">
-            <img src="/Logo/Amazon_com.jpg" alt="Amazon COM logo" width="110" height="28">
+            <img src="/Logo/Distributors/Amazon_com.jpg" alt="Amazon COM logo" width="130" height="58">
 	 </a>
 
 Amazon US distributes PTSolns products within USA. See the [PTSolns Amazon US Storefront]([https://www.amazon.ca/ptsolns](https://www.amazon.com/stores/PylonTechnologySolutions/page/F6F49188-3463-4718-97CA-01229431C7BA)) for more details.  
