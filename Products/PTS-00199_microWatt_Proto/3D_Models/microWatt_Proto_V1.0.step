@@ -2,7 +2,7 @@ ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('PTSolns microWatt Proto'),'2;1');
 FILE_NAME(
-	'TSolns microWatt Proto.step',
+	'PTSolns microWatt Proto.step',
 	'2025-03-05T14:37:27',
 	('PTSolns'),
 	(''),
@@ -20,7 +20,7 @@ DATA;
 #4 = PRODUCT_DEFINITION_SHAPE('','',#5);
 #5 = PRODUCT_DEFINITION('design','',#6,#9);
 #6 = PRODUCT_DEFINITION_FORMATION('','',#7);
-#7 = PRODUCT('TSolns microWatt Proto','TSolns microWatt Proto','',(#8));
+#7 = PRODUCT('PTSolns microWatt Proto','PTSolns microWatt Proto','',(#8));
 #8 = PRODUCT_CONTEXT('',#2,'mechanical');
 #9 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
 #10 = SHAPE_REPRESENTATION('',(#11,#15),#19);
@@ -46,7 +46,7 @@ GLOBAL_UNCERTAINTY_ASSIGNED_CONTEXT((#23)) GLOBAL_UNIT_ASSIGNED_CONTEXT(
 #26 = PRODUCT_DEFINITION_SHAPE('','',#27);
 #27 = PRODUCT_DEFINITION('design','',#28,#31);
 #28 = PRODUCT_DEFINITION_FORMATION('','',#29);
-#29 = PRODUCT('TSolns microWatt Proto','TSolns microWatt Proto','',(#30));
+#29 = PRODUCT('PTSolns microWatt Proto','PTSolns microWatt Proto','',(#30));
 #30 = PRODUCT_CONTEXT('',#2,'mechanical');
 #31 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
 #32 = ADVANCED_BREP_SHAPE_REPRESENTATION('',(#11,#33),#21627);
