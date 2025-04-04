@@ -32,6 +32,7 @@ This repository contains supporting material for PTSolns products, including dat
 | PTS-00196-201 | Nano Flip | [GitHub](https://github.com/PTSolns/docs/tree/main/Products/PTS-00196_Nano_Flip) | [DigiKey](https://www.digikey.com/short/v8v4tp9c) &nbsp;&nbsp; [Jameco](https://www.jameco.com/z/PTS-00196-201-PTSolns-Nano-ATmega328P-Microcontroller-Development-Board-Nano-Flip_2770151.html) &nbsp;&nbsp; [Amazon.ca](https://www.amazon.ca/dp/B0DBMVYP39?ref_=cm_sw_r_cp_ud_dp_HEH0ASSXVR05YJK3THMP&skipTwisterOG=1) &nbsp;&nbsp; [Amazon.com](https://a.co/d/dedJMst) | 
 | PTS-00198-211 | Pico BoB Kit | [GitHub](https://github.com/PTSolns/docs/tree/main/Products/PTS-00198_Pico_BoB) | [DigiKey](https://www.digikey.com/short/qn7dd00b) &nbsp;&nbsp; [Jameco](https://www.jameco.com/z/PTS-00198-211-PTSolns-Breakout-Board-BoB-for-RPi-Pico-Boards-Pico-BoB-Kit_2770159.html) &nbsp;&nbsp; [Amazon.ca](https://a.co/d/510fJOw) &nbsp;&nbsp; [Amazon.com](https://a.co/d/bUdzomC) |
 | PTS-00199-211 | microWatt Proto Kit | [GitHub](https://github.com/PTSolns/docs/tree/main/Products/PTS-00199_microWatt_Proto) | [DigiKey](https://www.digikey.com/short/wnbvz9tf) |
+| PTS-00204-211 | RTC MicroSD Shield Kit | [GitHub](https://github.com/PTSolns/docs/tree/main/Products/PTS-00204_RTC_MicroSD_Shield) | [DigiKey](https://www.digikey.com/short/wtf74d72) |
 
 
 <br>
