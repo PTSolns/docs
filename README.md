@@ -5,6 +5,12 @@
 This repository contains supporting material for PTSolns products, including datasheets, 3D & Fritzing models, photographs & images, code & sketches, and others whenever available/applicable. To request a datasheet/model/etc. that is not contained in this repository, please fill out the [Contact Us](https://ptsolns.com/pages/contact) form.
 <br>
 <br>
+[Visit our website: PTSolns.com](https://ptsolns.com)  
+
+[PTSolns-GPT for technical product questions](https://chatgpt.com/g/g-687fb44e940c81919f018966b36173ab-ptsolns-gpt)  
+
+[Tinker Thoughts Blog](https://ptsolns.com/tinker-thoughts)
+
 
 ## PTSolns Products
 
@@ -38,9 +44,24 @@ This repository contains supporting material for PTSolns products, including dat
 
 <br>
 
-## Tutorials & Projects
-Here you can find custom [Tutorials & Projects](https://github.com/PTSolns/docs/tree/main/Tutorials/).
+## Custom Product Libraries
+Below is a list of custom product libraries. Each library can be installed directly through the Arduino IDE by searching its name, or manually downloaded from the linked GitHub repository.
+
+- For *ESP32 microWatt*: [PTSolns_microWatt](https://github.com/PTSolns/PTSolns_microWatt)  
+- For *I2C Backpack*: [PTSolns_I2CBackpack](https://github.com/PTSolns/PTSolns_I2CBackpack)  
+- For *Interface-Shield*: [PTSolns_InterfaceShield](https://github.com/PTSolns/PTSolns_InterfaceShield)  
+- For *Pico Base* family: [PTSolns_PicoBase](https://github.com/PTSolns/PTSolns_PicoBase)
 <br>
+
+## Newsletter & Social Media
+Stay connected with PTSolns for the latest updates, new product releases, maker tutorials and more! Follow us by signing up to our Newsletter or on Social Media.
+
+- PTSolns Newsletter Sign-up: [http://eepurl.com/hnESjL](http://eepurl.com/hnESjL)  
+- Facebook: [https://www.facebook.com/PTSolns](https://www.facebook.com/PTSolns)  
+- YouTube: [https://www.youtube.com/@ptsolns](https://www.youtube.com/@ptsolns)  
+- LinkedIn: [https://www.linkedin.com/company/ptsolns](https://www.linkedin.com/company/ptsolns)  
+- Instagram: [https://www.instagram.com/ptsolns](https://www.instagram.com/ptsolns)  
+- X (Twitter): [https://x.com/ptsolns](https://x.com/ptsolns)
 <br>
 
 ## Distributors
