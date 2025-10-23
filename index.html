@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7Y4CX5TYV4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-7Y4CX5TYV4', { 'send_page_view': true });
+	</script>
 <meta property="og:title" content="PTSolns Documentation Repository" />
 <meta property="og:description" content="Find product datasheets, 3D models, Fritzing models, code examples, images and more supporting material." />
 <meta property="og:image" content="https://docs.ptsolns.com/Logo/Logo_JPG_Full_Color_Square_PTSolns.jpg" />
@@ -1123,14 +1131,34 @@ td:nth-child(2):hover .product-container .product-description {
     <br>
 </div>
 
-<footer>
-  <br>
-  <hr>
-  &nbsp &nbsp &nbsp<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/pages/contact" style="text-decoration:none">Contact Us</a>
-  <br>
-  <br>
-  &nbsp &nbsp &nbsp© 2025, PTSolns Pylon Technology Solutions Ltd.
-</footer>
+	<footer>
+	  <br>
+	  <hr>
+	  &nbsp &nbsp &nbsp<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/pages/contact" style="text-decoration:none">Contact Us</a>
+	  <br>
+	  <br>
+	  &nbsp &nbsp &nbsp© 2025, PTSolns Pylon Technology Solutions Ltd.
+	</footer>
+
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  document.querySelectorAll('a, button').forEach(function(el) {
+		el.addEventListener('click', function() {
+		  const href = el.getAttribute('href') || '';
+		  const label = el.textContent.trim() || href || 'unnamed';
+		  const category =
+			href.startsWith('http') && !href.includes(location.hostname) ? 'External Link' :
+			href.match(/\.(pdf|zip|exe)$/i) ? 'Download' :
+			'Internal Link';
+
+		  gtag('event', 'click', {
+			'event_category': category,
+			'event_label': label + ' (' + href + ')'
+		  });
+		});
+	  });
+	});
+	</script>
 
 </body>
 </html>
