@@ -53,6 +53,9 @@ Below is a list of custom product libraries. Each library can be installed direc
 - For *I2C Backpack*: [PTSolns_I2CBackpack](https://github.com/PTSolns/PTSolns_I2CBackpack)  
 - For *Interface-Shield*: [PTSolns_InterfaceShield](https://github.com/PTSolns/PTSolns_InterfaceShield)  
 - For *Pico Base* family: [PTSolns_PicoBase](https://github.com/PTSolns/PTSolns_PicoBase)
+- For any BMx280 (BMP280, BME280) sensor module: [BMx280](https://github.com/PTSolns/BMx280)
+- For any AHTx (AHT20, etc) sensor module: [PTSolns_AHTx](https://github.com/PTSolns/PTSolns_AHTx)
+- For any VEML7700 sensor module: [PTSolns_VEML7700](https://github.com/PTSolns/PTSolns_VEML7700)
 <br>
 
 ## Newsletter & Social Media
