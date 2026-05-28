@@ -1,1303 +1,1150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7Y4CX5TYV4"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Y4CX5TYV4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7Y4CX5TYV4', { 'send_page_view': true });
+  </script>
+  <meta property="og:title" content="PTSolns Documentation Repository" />
+  <meta property="og:description" content="Find product datasheets, 3D models, Fritzing models, code examples, images and more supporting material." />
+  <meta property="og:image" content="https://docs.ptsolns.com/Logo/Logo_JPG_Full_Color_Square_PTSolns.jpg" />
+  <meta property="og:url" content="https://docs.PTSolns.com" />
+  <meta property="og:type" content="website" />
+  <meta name="keywords" content="microcontroller, Uno, Nano, ESP32, prototyping, internet-of-things, IoT, automation, robotics, circuit, sensor data, tinker">
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PTSolns Documentation Repository</title>
+  
+  <link rel="icon" type="image/x-icon" href="https://docs.ptsolns.com/Logo/favicon.ico">
+  <link rel="shortcut icon" href="https://docs.ptsolns.com/Logo/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-		gtag('config', 'G-7Y4CX5TYV4', { 'send_page_view': true });
-	</script>
-<meta property="og:title" content="PTSolns Documentation Repository" />
-<meta property="og:description" content="Find product datasheets, 3D models, Fritzing models, code examples, images and more supporting material." />
-<meta property="og:image" content="https://docs.ptsolns.com/Logo/Logo_JPG_Full_Color_Square_PTSolns.jpg" />
-<meta property="og:url" content="https://docs.PTSolns.com" />
-<meta property="og:type" content="website" />
-<meta name="keywords" content="microcontroller, Uno, Nano, ESP32, prototyping, internet-of-things, IoT, automation, robotics, circuit, sensor data, tinker">
-<meta name="robots" content="index, follow">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name='description' content='The PTSolns Documentation Repository provides supporting material for PTSolns products including datasheets, 3D models, Fritzing diagrams, images, code, and sketches.'>
-<link rel="icon" type="image/x-icon" href="/Logo/favicon.ico">
-<style>
-hr {
-  border: none;
-  height: 3px;
-  color: #1E89AF;
-  background-color: #1E89AF;
-}
+  <style>
+    :root{
+      --brand-blue: #1E89AF;
+      --brand-grey: #808184;
+      --bg: #0b1220;
+      --card: rgba(128, 129, 132, 0.08);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: var(--brand-grey);
+      --line: rgba(128, 129, 132, 0.25);
+      --accent: var(--brand-blue);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 16px;
+    }
 
-body {
-  font-family: Arial;
-  margin: 0;
-}
+    * { box-sizing: border-box; }
+    body {
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(30, 137, 175, 0.12), transparent 60%),
+        radial-gradient(900px 500px at 85% 15%, rgba(128, 129, 132, 0.1), transparent 55%),
+        radial-gradient(1000px 600px at 35% 90%, rgba(30, 137, 175, 0.08), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.45;
+    }
 
-.header {
-  padding: 10px;
-  text-align: center;
-  background: #1E89AF;
-  color: white;
-  font-size: 20px;
-}
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 40px 18px 56px; }
 
-.content {padding:20px;}
+    header { display:flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; justify-content: space-between; margin-bottom: 24px; }
+    .header-left { display: flex; gap: 20px; align-items: flex-start; }
+    .logo-img { border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); }
+    .header-text { display: flex; flex-direction: column; gap: 8px; }
+    
+    h1 { margin:0; font-size: 28px; letter-spacing: .2px; display: flex; align-items: center; }
+    .subtitle { margin: 6px 0 0; color: var(--muted); font-size: 15px; max-width: 700px; line-height: 1.6; }
+    .subtitle a { color: var(--accent); text-decoration: underline; font-weight: 600; }
+    .subtitle a:hover { color: #fff; }
 
-.button {
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
+    .header-links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px; width: 100%; }
+    .header-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 2px solid rgba(128, 129, 132, 0.4);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .header-btn:hover { background: rgba(30, 137, 175, 0.15); border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-.button1 {
-  background-color: white;
-  color: black;
-  border: 3px solid #1E89AF;
-}
+    .search-container { margin: 30px 0; width: 100%; }
+    .search-input {
+      width: 100%;
+      padding: 18px 24px;
+      font-size: 18px;
+      border-radius: 14px;
+      border: 2px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      outline: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .search-input:focus { border-color: var(--accent); background: rgba(255,255,255,0.08); }
+    .search-input::placeholder { color: var(--brand-grey); }
 
-.button1:hover {
-  background-color: #1E89AF;
-  color: white;
-}
+    .grid { display:grid; grid-template-columns: 1fr; gap: 20px; margin-top: 16px; }
+    @media (min-width: 960px){ .grid-2col { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px){ .grid-3col { grid-template-columns: 1fr 1fr 1fr; } }
 
-.button1 {border-radius: 8px;}
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card .top { padding: 14px 16px; display:flex; gap:10px; align-items:center; justify-content: space-between; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)); border-bottom: 1px solid var(--line); border-top-left-radius: var(--radius); border-top-right-radius: var(--radius); }
+    .card h2 { margin:0; font-size: 16px; letter-spacing: .2px; }
+    .tag { font-size: 12px; color: #fff; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--accent); background: rgba(30, 137, 175, 0.2); }
+    .content { padding: 16px; }
 
-table {
-    border-collapse: separate;
-    border-spacing: 20px 2px;
-    width: 80%;
-    max-width: 740px;
-    margin-left: 0 auto;
-}
+    .items-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 860px){ .items-grid { grid-template-columns: 1fr 1fr; } }
 
-th {
-    text-align: left;
-}
+    .item { background: rgba(255,255,255,0.02); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display:flex; flex-direction: column; gap: 12px; position: relative; transition: border-color 0.2s; }
+    .item:hover { border-color: rgba(128, 129, 132, 0.6); }
+    .item-header { display: flex; flex-direction: column; gap: 4px; }
+    .sku { color: var(--muted); font-family: monospace; font-size: 12px; }
+    
+    .product-trigger { font-weight: 600; color: var(--text); cursor: default; display: inline-block; position: relative; border-bottom: 1px dotted var(--brand-grey); padding-bottom: 2px; width: fit-content; }
+    .hover-popup { position: absolute; bottom: 100%; left: 0; margin-bottom: 12px; width: 260px; background: #0f172a; border: 1px solid var(--accent); border-radius: 12px; padding: 10px; opacity: 0; visibility: hidden; transition: all 0.2s ease-in-out; z-index: 100; box-shadow: 0 10px 25px rgba(0,0,0,0.8); pointer-events: none; }
+    .product-trigger:hover .hover-popup { opacity: 1; visibility: visible; transform: translateY(-5px); }
+    .hover-popup img { width: 100%; border-radius: 6px; margin-bottom: 8px; background: #fff;}
+    .hover-popup .popup-desc { font-size: 12px; color: var(--text); line-height: 1.4; white-space: normal; font-weight: normal; }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    table-layout: fixed;
-}
+    .link-group-container { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; border-top: 1px solid var(--line); padding-top: 12px; }
+    .link-row { display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
+    .group-label { font-size: 11px; color: var(--muted); text-transform: uppercase; width: 90px; flex-shrink: 0; padding-top: 6px; font-weight: 600;}
+    .btn-wrap { display: flex; flex-wrap: wrap; gap: 6px; flex: 1;}
 
-th:nth-child(1), td:nth-child(1) { width: 17%; }
-th:nth-child(3), td:nth-child(3) { width: 9%; }
-th:nth-child(4), td:nth-child(4) { width: 14%; }
-th:last-child, td:last-child { width: 16%; } /* 16 */
+    .action-btn { display: inline-flex; align-items: center; justify-content: center; cursor: pointer; border: 1px solid var(--line); background: rgba(255,255,255,0.04); color: var(--text); padding: 6px 10px; border-radius: 8px; font-size: 11px; text-decoration: none; transition: all .2s ease; }
+    .action-btn:hover { background: rgba(30, 137, 175, 0.15); border-color: var(--accent); color: var(--accent); }
 
-tbody tr:nth-child(odd) {
-    background-color: rgba(32, 137, 175, 0.4);
-}
+    ul.custom-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    ul.custom-links li a { color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 14px; transition: color 0.2s;}
+    ul.custom-links li a::before { content: '→'; color: var(--accent); }
+    ul.custom-links li a:hover { color: var(--accent); text-decoration: underline; }
 
-tbody tr:nth-child(even) {
-    background-color: rgba(128, 129, 132, 0.3);
-}
+    ul.social-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    ul.social-links li a { color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 14px; transition: color 0.2s;}
+    ul.social-links li a i { color: var(--accent); font-size: 18px; width: 24px; text-align: center; transition: transform 0.2s; }
+    ul.social-links li a:hover { color: var(--accent); text-decoration: underline; }
+    ul.social-links li a:hover i { transform: scale(1.1); }
 
-table td, table th {
-    padding: 10px;
-    text-align: left;
-    border-left: 1px solid #000000;
-}
+    details { background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px solid var(--line); margin-top: 10px; transition: all 0.3s ease;}
+    summary { padding: 12px 16px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--accent); user-select: none; display: flex; justify-content: space-between; align-items: center; list-style: none;}
+    summary::-webkit-details-marker { display: none; }
+    summary::marker { display: none; }
+    summary::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; transition: transform 0.2s ease; }
+    details[open] summary::after { transform: rotate(180deg); }
+    details ul { padding: 0 16px 16px 20px; margin: 0; display: flex; flex-direction: column; gap: 6px; }
 
-table th:first-child,
-table td:first-child {
-    border-left: none; 
-}
-
-thead th {
-    background-color: white;
-}
-
-.product-container {
-    position: relative;
-    display: inline-block;
-}
-
-/* Style the images */
-.product-container img {
-    opacity: 0;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    z-index: 1;
-    width: 300px;
-    height: auto;
-    transition: opacity 0.3s ease;
-    border: 3px solid #1E89AF;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    pointer-events: none;
-}
-
-/* Style for product name overlay */
-.product-name-overlay {
-    opacity: 0;
-    position: absolute;
-    bottom: 0; /* Align at the bottom of the image */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    background: rgba(30, 137, 175, 1.0);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: 2; /* Ensure it appears above the image */
-}
-
-/* Style for description box */
-.product-description {
-    opacity: 0;
-    position: absolute;
-    top: calc(20px); /* Position below image with consistent spacing */
-    left: 0;
-    width: calc(300px - 20px); /* Image width minus border and padding */
-    background-color: white;
-    border: 3px solid #1E89AF;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-    text-align: left;
-}
-
-/* Show the image, product name and description when hovering over the name cell */
-td:nth-child(2):hover .product-container img,
-td:nth-child(2):hover .product-container .product-name-overlay,
-td:nth-child(2):hover .product-container .product-description {
-    opacity: 1;
-}
-
-/* Style for GitHub popup */
-.github-popup {
-    position: relative;
-    display: inline-block;
-}
-
-.github-popup-content {
-    opacity: 0;
-    position: absolute;
-    background-color: white;
-    min-width: 140px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border: 2px solid #1E89AF;
-    border-radius: 5px;
-    padding: 5px;
-    left: 0;
-    top: 100%;
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.github-popup:hover .github-popup-content {
-    opacity: 1;
-    transition-delay: 0.5s; /* Delay visibility by 1.5s */
-    pointer-events: none;
-    animation: enablePointer 0.5s forwards;
-}
-
-@keyframes enablePointer {
-    from { pointer-events: none; }
-    to { pointer-events: auto; }
-}
-
-.github-popup-content a {
-    color: black;
-    padding: 5px 10px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.github-popup-content a:hover {
-    background-color: #1E89AF;
-    color: white;
-}
-
-.github-popup:hover .github-popup-content {
-    display: block;
-}
-</style>
+    footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--line); margin-top: 40px; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--accent); text-decoration: none; font-weight: 600;}
+    footer a:hover { text-decoration: underline; }
+  </style>
 </head>
+
 <body>
-
-<div class="header">
-  <h1>PTSolns Documentation Repository</h1>
-</div>
-
-<div class="content">
-    <img src="/Logo/Logo JPG_Full Color PTSolns.jpg" alt="PTSolns logo" width="143" height="57">
-    <br>
-    <br>
-    View the repository in GitHub, <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs">here</a>.
-    <br>
-    <br>
-    This repository contains supporting material for PTSolns products, including datasheets, 3D & Fritzing models, photographs & images, code & sketches, and others whenever available/applicable. To request a datasheet/model/etc. that is not contained in this repository please fill out the <a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/pages/contact">Contact Us</a> form.
-    <br>
-    <br>
-    <button class="button button1"><a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com" style="text-decoration:none"><b>Visit our website: PTSolns.com</b></a></button>
-    <br>
-    <br>
-    <button class="button button1"><a target="_blank" rel="noopener noreferrer" href="https://chatgpt.com/g/g-687fb44e940c81919f018966b36173ab-ptsolns-gpt" style="text-decoration:none"><b>PTSolns-GPT for technical product questions</b></a></button>
-    <br>
-    <br>  
-	<button class="button button1"><a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/pages/ptsolns-ide" style="text-decoration:none"><b>PTSolns IDE</b></a></button>
-    <br>
-    <br>
-    <button class="button button1"><a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/tinker-thoughts" style="text-decoration:none"><b>Tinker Thoughts Blog</b></a></button>
-    <br>
-    <br> 
-    <h2><u>PTSolns Products</u></h2>
-    <table>
-        <thead>
-            <tr>
-                <th>SKU</th>
-                <th>Name</th>
-                <th>Docs</th>
-                <th>Product Page</th>
-                <th>Authorized Distributors</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>PTS-00021-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">NTEA-LG Kit</span>
-                        <span class="product-name-overlay">NTEA-LG Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00021_NTEA-LG/Images/PTS-00021-211_Cover.jpg" alt="NTEA-LG Kit">
-                        <div class="product-description">Breakout Board BoB for Nano Development Board NTEA-LG Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00021_NTEA-LG">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00021_NTEA-LG/Datasheets/Datasheet_PTS-00021_26_28_NTEA-Series_Kit.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00021_NTEA-LG/3D_Models/NTEA-LG_v1.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/ntea-lg">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/02nnpbht">DigiKey</a><br> 
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00021-211-PTSolns-Breakout-Board-BoB-Kit-for-Nano-Development-Board-Large-Format-Kit-_2769999.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-nano-terminal-expansion-adapter-board-ntea-lg">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/0CGSFTL">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/gSPipKz">Amazon.com</a>
-                </td>
-            </tr>
-            <tr>
-                <td>PTS-00026-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">NTEA-SM Kit</span>
-                        <span class="product-name-overlay">NTEA-SM Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00026_NTEA-SM/Images/PTS-00026-211_Cover.jpg" alt="NTEA-SM Kit">
-                        <div class="product-description">Breakout Board BoB for Nano Development Board NTEA-SM Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00026_NTEA-SM">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00026_NTEA-SM/Datasheets/Datasheet_PTS-00026_NTEA-SM_Kit.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00026_NTEA-SM/3D_Models/NTEA-SM_v1.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/ntea-sm">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/fh3fvpzv">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00026-211-PTSolns-Breakout-Board-BoB-Kit-for-Nano-Development-Board-Small-Format-Kit-_2770007.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-breakout-board-bob-expansion-adapter-for-nano-microcontroller-development-board-nano-ntea-sm">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/3XSgRRk">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/5J22Fhe">Amazon.com</a>
-                </td>
-            </tr>
-            <tr>
-                <td>PTS-00028-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">NTEA-MD Kit</span>
-                        <span class="product-name-overlay">NTEA-MD Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00028_NTEA-MD/Images/PTS-00028-211_Cover.jpg" alt="NTEA-MD Kit">
-                        <div class="product-description">Breakout Board BoB for Nano Development Board NTEA-MD Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00028_NTEA-MD">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00028_NTEA-MD/Datasheets/Datasheet_PTS-00021_26_28_NTEA-Series_Kit.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00028_NTEA-MD/3D_Models/NTEA-MD_v1.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/ntea-md">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/q9z5h4wf">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00028-211-PTSolns-Breakout-Board-BoB-Kit-for-Nano-Development-Board-Medium-Format-Kit-_2770015.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-breakout-board-kit-for-nano-development-board-ntea-md">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/hfdsFRs">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/3ojoRsy">Amazon.com</a>
-                </td>        
-            </tr>
-            <tr>
-                <td>PTS-00075-201</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Proto-Full</span>
-                        <span class="product-name-overlay">Proto-Full</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/Images/PTS-00075-201_Cover.jpg" alt="Proto-Full">
-                        <div class="product-description">General Purpose Through Hole Prototyping Board Proto-Full</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00075_Proto-Full">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/Datasheets/Datasheet_PTS-00075_Proto-Full.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/3D_Models/Proto-Full_v2.1.step">3D Model</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/Fritzing_Models/Proto-Full_V2.1.fzpz">Fritzing Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/proto-full">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/7wqm3jhv">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00075-201-PTSolns-General-Purpose-Through-Hole-Prototyping-Board-Proto-Full_2770023.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-proto-full-pcb">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/3iSvzrg">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/60oQhc3">Amazon.com</a>
-                </td>    
-            </tr>
-            <tr>
-                <td>PTS-00079-201</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Proto-Half</span>
-                        <span class="product-name-overlay">Proto-Half</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/Images/PTS-00079-201_Cover.jpg" alt="Proto-Half">
-                        <div class="product-description">General Purpose Through Hole Prototyping Board Proto-Half</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00079_Proto-Half">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/Datasheets/Datasheet_PTS-00079_Proto-Half.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/3D_Models/Proto-Half_v2.1.step">3D Model</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/Fritzing_Models/Proto-Half_v2.1.fzpz">Fritzing Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/proto-half">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/mmp35jz3">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00079-201-PTSolns-General-Purpose-Through-Hole-Prototyping-Board-Proto-Half_2770031.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-proto-half-basic-prototyping-breadboard">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/3sVBzpQ">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/fm7GE2p">Amazon.com</a>
-                </td>  
-            </tr>
-            <tr>
-                <td>PTS-00099-201</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">ESP Master Key</span>
-                        <span class="product-name-overlay">ESP Master Key</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Images/PTS-00099-201_Cover.jpg" alt="ESP Master Key">
-                        <div class="product-description">Adapter for Common Development Boards ESP Master Key</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00099_ESP_Master_Key">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Datasheets/Datasheet_PTS-00099_ESP_Master_Key.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/3D_Models/ESP_Master_Key_v2.1.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/esp-master-key">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/49b5rctm">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00099-201-PTSolns-Adapter-for-Common-Development-Boards-ESP-Master-Key_2770039.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-esp-master-key">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/d69tky3">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/38auEIb">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00099-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">ESP Master Key Kit</span>
-                        <span class="product-name-overlay">ESP Master Key Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Images/PTS-00099-211_Cover.jpg" alt="ESP Master Key Kit">
-                        <div class="product-description">Adapter for Common Development Boards ESP Master Key Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00099_ESP_Master_Key">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Datasheets/Datasheet_PTS-00099_ESP_Master_Key_Kit.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/3D_Models/ESP_Master_Key_v2.1.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/esp-master-key">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/h9hjzqtn">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00099-211-PTSolns-Adapter-for-Common-Development-Boards-ESP-Master-Key-Kit_2770047.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-esp-master-key-kit">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/d69tky3">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/38auEIb">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00134-001</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Screwdriver Set</span>
-                        <span class="product-name-overlay">Screwdriver Set</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00134_Screwdriver_Set/Images/PTS-00134-001_Cover.jpg" alt="Screwdriver Set">
-                        <div class="product-description">Precision S2 Magnetic 25-in-1 Screwdriver Set</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00134_Screwdriver_Set">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00134_Screwdriver_Set/Datasheets/Datasheet_PTS-00134_Screwdriver_Set.pdf">Datasheet</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/screwdriver-set">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/nchmvnff">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00134-001-PTSolns-Precision-S2-Magnetic-25-in-1-Screwdriver-Set_2770055.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-precision-s2-magnetic-25-in-1-screwdriver-set">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/hICkP8T">Amazon.ca</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00135-201</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Proto-N2RF</span>
-                        <span class="product-name-overlay">Proto-N2RF</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00135_Proto-N2RF/Images/PTS-00135-201_Cover.jpg" alt="Proto-N2RF">
-                        <div class="product-description">Nano and nRF24L01+ Through Hole Prototyping Board Proto-N2RF</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00135_Proto-N2RF">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00135_Proto-N2RF/Datasheets/Datasheet_PTS-00135_Proto-N2RF.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00135_Proto-N2RF/3D_Models/Proto-N2RF_v2.1.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/proto-n2rf">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/32bvbcmr">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00135-201-PTSolns-Nano-and-nRF24L01-Through-Hole-Prototyping-Board-Proto-N2RF_2770063.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-prototyping-solderable-breadboard-pcb">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.ca/dp/B09PY4RHPL?ref_=cm_sw_r_cp_ud_dp_EA2H1ASRMKT7YJESBT9R_3&skipTwisterOG=1">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/54WxbXr">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00137-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">LoRa Key Kit</span>
-                        <span class="product-name-overlay">LoRa Key Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00137_LoRa_Key/Images/PTS_00137_211_Cover.JPG" alt="LoRa Key Kit">
-                        <div class="product-description">Breakout Board BoB for Common LoRa Modules LoRa Key Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00137_LoRa_Key">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00137_LoRa_Key/Datasheets/Datasheet_PTS-00137_LoRa_Key_Kit.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00137_LoRa_Key/3D_Models/LoRa_Key_v2.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/lora-key">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/b8ccd27v">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00137-211-PTSolns-Breakout-Board-BoB-for-Common-LoRa-Modules-LoRa-Key-Kit_2770071.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-breakout-board-for-common-lora-module-key-kit">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/4mm6Ihe">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/3NYFrLK">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00153-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Proto-Shield Kit</span>
-                        <span class="product-name-overlay">Proto-Shield Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/Images/PTS-00153-211_Cover.jpg" alt="Proto-Shield Kit">
-                        <div class="product-description">Prototyping Shield for Uno Boards Proto-Shield Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00153_Proto-Shield">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/Datasheets/Datasheet_PTS-00153_Proto-Shield.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/3D_Models/Proto-Shield_V2.0.step">3D Model</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/Fritzing_Models/Proto-Shield_V2.0.fzpz">Fritzing Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/proto-shield">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/vb8m5dh5">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00153-211-PTSolns-Prototyping-Shield-for-Uno-Boa_2770079.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-prototype-pcb-microcontroller-shield-for-arduino-uno">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/iAF4IGx">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/h029sfj">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00154-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">NRF-Shield Kit</span>
-                        <span class="product-name-overlay">NRF-Shield Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00154_NRF-Shield/Images/PTS-00154-211_Cover.jpg" alt="NRF-Shield Kit">
-                        <div class="product-description">nRF24L01+ RF Shield for Uno Boards NRF-Shield Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00154_NRF-Shield">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00154_NRF-Shield/Datasheets/Datasheet_PTS-00154_NRF-Shield.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00154_NRF-Shield/3D_Models/NRF-Shield_v2.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/nrf-shield">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/vn0ffcm0">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00154-211-PTSolns-nRF24L01-RF-Shield-for-Uno-Boards-NRF-Shield-Kit_2770087.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-prototype-pcb-microcontroller-shield-for-arduino-uno-nrf-shield-basic">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/aAptIoB">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/h029sfj">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00155-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">ESP BoB Kit</span>
-                        <span class="product-name-overlay">ESP BoB Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00155_ESP_BoB/Images/PTS-00155-211_Cover.jpg" alt="ESP BoB Kit">
-                        <div class="product-description">Breakout Board BoB for common ESP Based Boards ESP BoB Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00155_ESP_BoB">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00155_ESP_BoB/Datasheets/Datasheet_PTS-00155_ESP_BoB_Kit.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00155_ESP_BoB/3D_Models/ESP_BoB_v1.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/esp-bob">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/fp18qznv">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00155-211-PTSolns-Breakout-Board-BoB-for-common-ESP-Based-Boards-ESP-BoB-Kit_2770095.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-esp-bob-kit">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.ca/dp/B0DTJLTYV5?ref_=cm_sw_r_cp_ud_dp_0GZ4EK0RDGHS76P5EMKD&skipTwisterOG=1">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/eYfZE2o">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00156-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Interface Shield Kit</span>
-                        <span class="product-name-overlay">Interface Shield Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00156_Interface-Shield/Images/PTS-00156-211_Cover.jpg" alt="Interface Shield Kit">
-                        <div class="product-description">LCD Button LED Shield for Uno Boards Interface Shield Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00156_Interface-Shield">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00156_Interface-Shield/Datasheets/Datasheet_PTS-00156_Interface-Shield_Kit.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00156_Interface-Shield/3D_Models/Interface_Shield_v1.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/interface-shield">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/43hbv424">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00156-211-PTSolns-LCD-Button-LED-Shield-for-Uno-Boards-Interface-Shield-Kit_2770103.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-1602-lcd-interface-shield-kit-uno">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.ca/dp/B0C9S4C665?ref_=cm_sw_r_cp_ud_dp_ZBH633R1E5P6K7KV9DS8&skipTwisterOG=1">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/ahM62fI">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00157-201</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Pico Base</span>
-                        <span class="product-name-overlay">Pico Base</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00157_Pico_Base/Images/PTS-00157-201_Cover.jpg" alt="Pico Base">
-                        <div class="product-description">Expansion Board for RPi Pico Family Pico Base</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00157_Pico_Base">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00157_Pico_Base/Datasheets/Datasheet_PTS-00157_Pico_Base.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00157_Pico_Base/3D_Models/Pico_Base_v2.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/pico-base">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/0vb91p93">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00157-201-PTSolns-Expansion-Board-for-RPi-Pico-Family-Pico-Base_2770111.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-raspberry-pi-pico-expansion-board">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/fzfQ0qT">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/cmVAZMc">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00158-201</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Pico Base Proto</span>
-                        <span class="product-name-overlay">Pico Base Proto</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00158_Pico_Base_Proto/Images/PTS-00158-201_Cover.jpg" alt="Pico Base Proto">
-                        <div class="product-description">Expansion Board for RPi Pico Family Pico Base + Proto</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00158_Pico_Base_Proto">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00158_Pico_Base_Proto/Datasheets/Datasheet_PTS-00158_Pico_Base_Proto.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00158_Pico_Base_Proto/3D_Models/Pico_Base_Proto_v2.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/pico-base-proto">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/8414w459">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00158-201-PTSolns-Expansion-Board-for-RPi-Pico-Family-Pico-Base-Proto_2770119.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-raspberry-pi-pico-expansion-board-pico-base-proto">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/dpJ86eG">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/2SmHAdy">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00165-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">ESP32 microWatt Kit</span>
-                        <span class="product-name-overlay">ESP32 microWatt Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/Images/PTS-00165_211_Cover.JPG" alt="ESP32 microWatt Kit">
-                        <div class="product-description">ESP32 Microcontroller Development Board ESP32 microWatt</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00165_ESP32_microWatt">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/Datasheets/Datasheet_PTS-00165_ESP32_microWatt.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/3D_Models/ESP32_microWatt_v2.0.step">3D Model</a>
-							<a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/Fritzing_Models/PTSolns-ESP32-microWatt-V2-0.fzpz">Fritzing Model</a>
-						</div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/esp32-microwatt">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/945dfh9n">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00165-211-PTSolns-ESP32-Microcontroller-Development-Board-ESP32-microWatt_2770127.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-esp32-microwatt-development-board-microcontroller">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/gjVCNsN">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/2cqJ98p">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00166-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">I2C Backpack Kit</span>
-                        <span class="product-name-overlay">I2C Backpack Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00166_I2C_Backpack/Images/PTS-00166-211_Cover.jpg" alt="I2C Backpack Kit">
-                        <div class="product-description">I2C QWIIC Backpack for 16-Pin 1602 / 2004 LCD Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00166_I2C_Backpack">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00166_I2C_Backpack/Datasheets/Datasheet_PTS-00166_I2C_Backpack_Kit.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00166_I2C_Backpack/3D_Models/PTSolns_I2C_Backpack_V1.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/i2c-backpack">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/zw82d2v9">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00166-211-PTSolns-I2C-QWIIC-Backpack-for-16-Pin-1602-2004-LCD-Kit_2770135.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-i2c-backpack-1602-2004-lcd-kit">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.ca/dp/B0CQF2Z7Q9?ref_=cm_sw_r_cp_ud_dp_S6BZN5KBA1CVGF9PPWYT&skipTwisterOG=1">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/gKBK2Mr">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00194-201</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Uno R3+</span>
-                        <span class="product-name-overlay">Uno R3+</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/Images/PTS-00194-201_Cover.jpg" alt="Uno R3+">
-                        <div class="product-description">Uno ATmega328P Microcontroller Development Board Uno R3+</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00194_Uno_R3_Plus">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/Datasheets/Datasheet_PTS-00194_Uno_R3_plus.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/3D_Models/Uno_R3.step">3D Model</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/Fritzing_Models/Uno-R3-V2-1.fzpz">Fritzing Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/uno-r3">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/1b9r278n">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00194-201-PTSolns-Uno-ATmega328P-Microcontroller-Development-Board-Uno-R3-Plus_2770143.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-uno-r3-atmega328p-microcontroller-development-board-arduino-compatible">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/7z8PehF">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/3JRyJYS">Amazon.com</a>
-                </td> 
-            </tr>
-			
-			<tr>
-                <td>PTS-00211-201</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Leonardo+</span>
-                        <span class="product-name-overlay">Leonardo+</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00211_Leonardo_Plus/Images/PTS-00211_Leonardo_Plus_Cover.JPG" alt="Leonardo+">
-                        <div class="product-description">Leonardo ATmega32U4 Microcontroller Development Board Leonardo+</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00211_Leonardo_Plus">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00211_Leonardo_Plus/Datasheets/Datasheet_PTS-00211_Leonardo_plus.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00211_Leonardo_Plus/3D_Models/Leonardo_Plus_v2.0.step">3D Model</a>
-                            <a target="_blank" rel="noopener noreferrer" href=" ">Fritzing Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/leonardo_plus">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="#">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="#">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="#">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.ca/dp/B0GRTLXPQR">Amazon.ca</a><br>
-                    
-                </td> 
-            </tr>
-			
-            <tr>
-                <td>PTS-00196-201</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Nano Flip</span>
-                        <span class="product-name-overlay">Nano Flip</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/Images/PTS-00196-201_Cover.jpg" alt="Nano Flip">
-                        <div class="product-description">Nano ATmega328P Microcontroller Development Board Nano Flip</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00196_Nano_Flip">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/Datasheets/Datasheet_PTS-00196_Nano_Flip.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/3D_Models/Nano_Flip_v2.0.step">3D Model</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/Fritzing_Models/Nano-Flip-V2-0.fzpz">Fritzing Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/nano-flip">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/v8v4tp9c">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00196-201-PTSolns-Nano-ATmega328P-Microcontroller-Development-Board-Nano-Flip_2770151.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-nano-flip-microcontroller-based-on-atmega328p-arduino-nano-compatible">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.ca/dp/B0DBMVYP39?ref_=cm_sw_r_cp_ud_dp_HEH0ASSXVR05YJK3THMP&skipTwisterOG=1">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/dedJMst">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00198-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Pico BoB Kit</span>
-                        <span class="product-name-overlay">Pico BoB Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00198_Pico_BoB/Images/PTS-00198-211_Cover.jpg" alt="Pico BoB Kit">
-                        <div class="product-description">Breakout Board BoB for RPi Pico Boards Pico BoB Kit</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00198_Pico_BoB">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00198_Pico_BoB/Datasheets/Datasheet_PTS-00198_Pico_BoB.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00198_Pico_BoB/3D_Models/Pico_BoB.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/pico-bob">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/qn7dd00b">DigiKey</a><br>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00198-211-PTSolns-Breakout-Board-BoB-for-RPi-Pico-Boards-Pico-BoB-Kit_2770159.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-pico-bob-kit">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/510fJOw">Amazon.ca</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/bUdzomC">Amazon.com</a>
-                </td> 
-            </tr>
-            <tr>
-                <td>PTS-00199-211</td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">microWatt Proto Kit</span>
-                        <span class="product-name-overlay">microWatt Proto Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00199_microWatt_Proto/Images/PTS-00199-211_Cover.JPG" alt="MicroWatt Proto Kit">
-                        <div class="product-description">Prototyping board with central rails for ESP32 microWatt</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00199_microWatt_Proto">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00199_microWatt_Proto/Datasheets/Datasheet_PTS-00199_microWatt_Proto.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00199_microWatt_Proto/3D_Models/microWatt_Proto_V1.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/microwatt-proto">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/wnbvz9tf">DigiKey</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00199-211-PTSolns-Stacking-Prototyping-Board-for-ESP32-microWatt_2792263.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-microwatt-proto-kit">RobotShop</a>
-				</td>
-            </tr>
-			
-			<tr>
-                <td>
-                	PTS-00204-211
-                </td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">RTC MicroSD Shield Kit</span>
-                        <span class="product-name-overlay">RTC MicroSD Shield Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00204_RTC_MicroSD_Shield/Images/PTS-00204-211_Cover.JPG" alt="RTC MicroSD Shield Kit">
-                        <div class="product-description">Data logging shield with RTC, EEPROM and SD card reader</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00204_RTC_MicroSD_Shield">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00204_RTC_MicroSD_Shield/Datasheets/Datasheet_PTS-00204_RTC_MicroSD_Shield.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00204_RTC_MicroSD_Shield/3D_Models/RTC_MicroSD_Shield_V1.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>    
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/rtc-microsd-shield">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/wtf74d72">DigiKey</a> <br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00204-211-PTSolns-RTC-MicroSD-Data-Logging-Shield-for-Uno-Arduino-Compatible-_2792271.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-rtc-microsd-data-logging-shield-uno-arduino-compatible">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/bhnUeKR">Amazon.ca</a>
-                </td>
-			</tr>
-
-			<tr>
-                <td>
-                	PTS-00205-201
-                </td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Nano Flip 3V3</span>
-                        <span class="product-name-overlay">Nano Flip 3V3</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00205_Nano_Flip_3V3/Images/PTS-00205-201_Cover.jpg" alt="Nano Flip 3V3">
-                        <div class="product-description">3.3V Nano ATmega328P Microcontroller Development Board</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00205_Nano_Flip_3V3">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00205_Nano_Flip_3V3/Datasheets/Datasheet_PTS-00205_Nano_Flip_3V3.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00205_Nano_Flip_3V3/3D_Models/Nano_Flip_3V3_v2.0.step">3D Model</a>
-							<a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00205_Nano_Flip_3V3/Fritzing_Models/Nano-Flip-3V3-V2-0.fzpz">Fritzing Model</a>
-						</div>
-                    </div>
-                </td>   
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/nano-flip-3v3">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/c790jz4p">DigiKey</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00205-201-PTSolns-Nano-Flip-3v3-Powered-by-the-ATmega328P_2873631.html">Jameco</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-nano-flip-3v3-microcontroller-atmega328p-dev-board-33v-logic-level-arduino-nano-compatible">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/exXNtyl">Amazon.ca</a>
-                </td>
-			</tr>
-			
-			<tr>
-                <td>
-                	PTS-00206-201
-                </td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">Proto-ESP</span>
-                        <span class="product-name-overlay">Proto-ESP</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00206_Proto-ESP/Images/PTS-00206-201_Cover.JPG" alt="Proto-ESP">
-                        <div class="product-description">Prototyping board with ESP-based dev board interface</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00206_Proto-ESP">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00206_Proto-ESP/Datasheets/Datasheet_PTS-00206_Proto-ESP.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00206_Proto-ESP/3D_Models/Proto-ESP_v2.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/proto-esp">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/short/17jhjdpj">DigiKey</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00206-201-PTSolns-Proto-ESP-Prototype-PCB-Platform-Engineered-for-ESP-based-Development-Boards_2873639.html">Jameco</a><br>
-					<a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-proto-esp-prototyping-solderable-breadboard-esp32-esp8266">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/6zVmeZT">Amazon.ca</a>
-                </td>
-            </tr>
-			
-			<tr>
-                <td>
-                	PTS-00207-201
-                </td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">LoRa SX1276 915MHz Shield</span>
-                        <span class="product-name-overlay">LoRa SX1276 915MHz Shield</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00207_LoRa_SX1276_915MHz_Shield/Images/PTS-00207_Cover.JPG" alt="Proto-ESP">
-                        <div class="product-description">LoRa SX1276 915MHz Shield for Uno</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00207_LoRa_SX1276_915MHz_Shield">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00207_LoRa_SX1276_915MHz_Shield/Datasheets/Datasheet_PTS-00207_LoRa_SX1276_915MHz_Shield.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00207_LoRa_SX1276_915MHz_Shield/3D_Models/LoRa_SX1276_915MHz_Shield_v2.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/lora-sx1276-915mhz-shield">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/en/products/detail/ptsolns/PTS-00207-201/29184496">DigiKey</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00207-201-PTSolns-LoRa-reg-SX1276-915MHz-Shield-Arduino-Compatible-_2874943.html">Jameco</a><br>
-					<a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-lora-sx1276-915mhz-shield?qd=e7933f58c7f25e075808974a6ebf76a5">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/6b3sbft">Amazon.ca</a>
-                </td>
-            </tr>
-			
-			<tr>
-                <td>
-                	PTS-00210-211
-                </td>
-                <td>
-                    <div class="product-container">
-                        <span class="name-text">USB-UART Bridge Kit</span>
-                        <span class="product-name-overlay">USB-UART Bridge Kit</span>
-                        <img src="https://docs.ptsolns.com/Products/PTS-00210_USB-UART_Bridge/Images/PTS-00210-211_Cover.jpg" alt="USB-UART Bridge">
-                        <div class="product-description">5V and 3.3V USB-to-UART Bridge</div>
-                    </div>
-                </td>
-                <td>
-                    <div class="github-popup">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00210_USB-UART_Bridge">GitHub</a>
-                        <div class="github-popup-content">
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00210_USB-UART_Bridge/Datasheets/Datasheet_PTS-00210_USB_UART_Bridge.pdf">Datasheet</a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://docs.ptsolns.com/Products/PTS-00210_USB-UART_Bridge/3D_Models/USB-UART_Bridge_v1.0.step">3D Model</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/products/usb-uart-bridge">PTSolns.com</a>
-                </td>
-                <td>
-                	<a target="_blank" rel="noopener noreferrer">DigiKey</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/z/PTS-00210-211-PTSolns-USB-UART-Bridge-U2B-Converts-USB-C-Signals-into-UART_2873647.html">Jameco</a><br>
-					<a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/products/ptsolns-usb-uart-bridge-u2b-serial-adapter-ch340-5v-33v-programming-module">RobotShop</a><br>
-                    <a target="_blank" rel="noopener noreferrer" href="https://a.co/d/0cMWhFc">Amazon.ca</a>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <br>
-    <h2><u>Custom Product Libraries</u></h2>
-    Below is a list of custom product libraries. Each library can be installed directly through the <a href="https://ptsolns.com/pages/ptsolns-ide" target="_blank" rel="noopener noreferrer">PTSolns IDE</a> by searching its name, or manually downloaded from the linked GitHub repository. 
-    <br>
-    <br>
-    <p style="padding-left: 2em;">For <i>ESP32 microWatt</i>: <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/PTSolns_microWatt">PTSolns_microWatt</a></p>
-    <p style="padding-left: 2em;">For <i>I2C Backpack</i>: <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/PTSolns_I2CBackpack">PTSolns_I2CBackpack</a></p>
-    <p style="padding-left: 2em;">For <i>Interface-Shield</i>: <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/PTSolns_InterfaceShield">PTSolns_InterfaceShield</a></p>
-    <p style="padding-left: 2em;">For <i>Pico Base</i> family: <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/PTSolns_PicoBase">PTSolns_PicoBase</a></p>
-    <p style="padding-left: 2em;">For any BMx280 (BMP280, BME280) sensor module: <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/BMx280">BMx280</a></p>
-    <p style="padding-left: 2em;">For any AHTx (AHT20, etc) sensor module: <a target="_blank" rel="noopener noreferrer" href="https://github.com/PTSolns/PTSolns_AHTx">PTSolns_AHTx</a></p>
-	<p style="padding-left: 2em;">For any VEML7700 sensor module: <a target="_blank" rel="noopener noreferrer" href="hhttps://github.com/PTSolns/PTSolns_VEML7700">PTSolns_VEML7700</a></p>
-    <br>
+  <div class="wrap">
     
-<h2><u>Tinker Thoughts Blog - TTB</u></h2>
-<p>Read the <a href="https://ptsolns.com/blogs/tinker-thoughts" target="_blank" rel="noopener">Tinker Thoughts Blog</a>. </p>
+    <header>
+      <div class="header-left">
+        <img src="https://docs.ptsolns.com/Logo/Logo_JPG_Full_Color_Square_PTSolns.jpg" alt="Logo" width="90" class="logo-img">
+        <div class="header-text">
+          <h1>PTSolns Documentation Repository</h1>
+          <p class="subtitle">Supporting material for PTSolns products, including datasheets, 3D & Fritzing models, photographs, and code. To request additional information, please use the <a href="https://ptsolns.com/pages/contact" target="_blank">Contact Form</a>.</p>
+        </div>
+      </div>
+      
+      <div class="header-links">
+        <a href="https://github.com/PTSolns/docs" target="_blank" class="header-btn">GitHub Repo</a>
+        <a href="https://ptsolns.com" target="_blank" class="header-btn">Main Website</a>
+        <a href="https://chatgpt.com/g/g-687fb44e940c81919f018966b36173ab-ptsolns-gpt" target="_blank" class="header-btn">PTSolns-GPT</a>
+        <a href="https://ptsolns.com/pages/ptsolns-ide" target="_blank" class="header-btn">PTSolns IDE</a>
+      </div>
+    </header>
 
-<style>
-  details summary {
-    margin-left: 40px;
-    cursor: pointer;
-  }
-  details[open] summary {
-    margin-bottom: 14px;
-  }
-  details ul {
-    list-style: none;
-    padding-left: 60px;
-    margin-bottom: 20px;
-  }
-</style>
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" placeholder="Search products, SKUs, libraries, or blog posts...">
+    </div>
 
-<details>
-  <summary>Click to expand for full article list</summary>
-  <ul>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb-1-guest-post-making-the-clapper-basic-project" target="_blank" rel="noopener">TTB #1: Making The Clapper Basic Project</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb2-guest-post-adjustable-resistive-load-for-5vdc-1000ma-applications" target="_blank" rel="noopener">TTB #2: Adjustable Resistive Load for 5VDC 1000mA Applications</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb3-guest-post-the-nano-that-wanted-to-be-an-uno" target="_blank" rel="noopener">TTB #3: The Nano That Wanted to Be an Uno</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb4-custom-24-hour-single-revolution-clock" target="_blank" rel="noopener">TTB #4: Custom 24-Hour Single Revolution Clock</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb5-guest-post-making-a-simple-rf-network" target="_blank" rel="noopener">TTB #5: Making a Simple RF Network</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb6-guest-post-changing-bootloader-on-a-nano-using-a-custom-shield" target="_blank" rel="noopener">TTB #6: Changing Bootloader on a Nano Using a Custom Shield</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb7-how-to-verify-the-clock-source-on-a-nano" target="_blank" rel="noopener">TTB #7: How to Verify the Clock Source on a Nano</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb8-can-a-3-3v-signal-reliably-switch-a-5v-relay-module" target="_blank" rel="noopener">TTB #8: Can a 3.3V Signal Reliably Switch a 5V Relay Module</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb9-how-to-install-brass-heat-set-inserts-in-3d-printed-parts" target="_blank" rel="noopener">TTB #9: How to Install Brass Heat Set Inserts in 3D Printed Parts</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb10-why-your-usb-c-cable-wont-program-your-microcontroller" target="_blank" rel="noopener">TTB #10: Why Your USB-C Cable Will not Program Your Microcontroller</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb11-introducing-ptsolns-gpt" target="_blank" rel="noopener">TTB #11: Introducing PTSolns-GPT</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb12-non-compliant-use-of-ch340-v3-pin-deep-dive-for-engineers" target="_blank" rel="noopener">TTB #12: Non-Compliant Use of CH340 V3 Pin Deep Dive for Engineers</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb13-pcb-trace-width-calculator" target="_blank" rel="noopener">TTB #13: PCB Trace Width Calculator with Plot</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb14-testing-the-3-3v-pin-of-popular-nano-dev-boards" target="_blank" rel="noopener">TTB #14: Testing the 3.3V Pin of Popular Nano Dev Boards</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb15-guest-post-getting-started-with-the-esp32-microwatt-making-iot-projects" target="_blank" rel="noopener">TTB #15: Getting Started with the ESP32 microWatt Making IoT Projects</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb16-measuring-the-current-draw-on-bmp280-sensor-module" target="_blank" rel="noopener">TTB #16: Measuring the Current Draw on BMP280 Sensor Module</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb17-li-po-li-ion-battery-charging-calculator-with-bq24074" target="_blank" rel="noopener">TTB #17: LiPo and LiIon Battery Charging Calculator with BQ24074</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb18-guest-post-using-eeprom-on-the-nano-flip-to-make-a-button-logger" target="_blank" rel="noopener">TTB #18: Using EEPROM on the Nano Flip to Make a Button Logger</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb19-saving-a-broken-dev-board-with-a-usb-uart-bridge" target="_blank" rel="noopener">TTB #19: Saving a Broken Dev Board with a USBUART Bridge</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb20-thermal-response-of-microcontrollers-during-deep-sleep-and-active-modes" target="_blank" rel="noopener">TTB #20: Thermal Response of Microcontrollers During Deep Sleep and Active Modes</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb21-guest-post-yet-another-way-to-verify-the-clock-source-on-a-dev-board" target="_blank" rel="noopener">TTB #21: Yet Another Way to Verify the Clock Source on a Dev Board</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb22-the-i2c-mode-of-the-hc-sr04-ultrasonic-sensor" target="_blank" rel="noopener">TTB #22: The I2C Mode of the HCSR04 Ultrasonic Sensor</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb23-powering-a-9g-360-servo-motor-directly-from-a-nano-dev-board" target="_blank" rel="noopener">TTB #23: Powering a 9g 360° Servo Motor Directly from a Nano Dev Board</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb24-reversing-the-polarity-on-lipo-battery-jst-connectors" target="_blank" rel="noopener">TTB #24: Reversing the Polarity on LiPo Battery JST Connectors</a></li>
-    <li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb25-giving-life-to-an-old-digit-display" target="_blank" rel="noopener">TTB #25: Giving Life to an OLD Digit Display</a></li>
-	<li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb26-hacking-a-cuckoo-clock" target="_blank" rel="noopener">TTB #26: Hacking a Cuckoo Clock</a></li>
-	<li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb27-node-to-node-lora-network" target="_blank" rel="noopener">TTB #27: Node-to-Node LoRa Network</a></li>
-	<li><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb28-node-to-gateway-lora-network" target="_blank" rel="noopener">TTB #28: Node-to-Gateway LoRa Network</a></li>
+    <div class="grid">
+      <section class="card">
+        <div class="top">
+          <h2>PTSolns Products</h2>
+          <span class="tag primary" id="itemCount">28 ITEMS</span>
+        </div>
+        <div class="content">
+          <div class="items-grid" id="productGrid">
 
- 
-  </ul>
-</details>
-<br>
-    <br>
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00021-211</span>
+                <span class="product-trigger">NTEA-LG Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00021_NTEA-LG/Images/PTS-00021-211_Cover.jpg" alt="NTEA-LG Kit">
+                    <div class="popup-desc">Breakout Board BoB for Nano Development Board NTEA-LG Kit</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00021_NTEA-LG" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00021_NTEA-LG/Datasheets/Datasheet_PTS-00021_26_28_NTEA-Series_Kit.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00021_NTEA-LG/3D_Models/NTEA-LG_v1.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/ntea-lg" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/02nnpbht" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-nano-terminal-expansion-adapter-board-ntea-lg" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/0CGSFTL" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/gSPipKz" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
 
-    <h2><u>Newsletter & Social Media</u></h2>
-    Stay connected with PTSolns for the latest updates, new product releases, maker tutorials and more! Follow us by signing up to our Newsletter or on Social Meida.
-    <br>
-    <br>
-    <p style="padding-left: 2em;">PTSolns Newsletter: <a target="_blank" rel="noopener noreferrer" href="http://eepurl.com/hnESjL">http://eepurl.com/hnESjL</a></p>
-    <p style="padding-left: 2em;">Facebook: <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/PTSolns">https://www.facebook.com/PTSolns</a></p>
-    <p style="padding-left: 2em;">YouTube: <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@ptsolns">https://www.youtube.com/@ptsolns</a></p>
-    <p style="padding-left: 2em;">LinkedIn: <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/ptsolns">https://www.linkedin.com/company/ptsolns</a></p>
-    <p style="padding-left: 2em;">Instagram: <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ptsolns">https://www.instagram.com/ptsolns</a></p>
-    <p style="padding-left: 2em;">X (Twitter): <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ptsolns">https://x.com/ptsolns</a></p>
-    <br>
-    
-    <h2><u>Distributors</u></h2>
-     <a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/en/supplier-centers/ptsolns-pylon-technology-solutions" style="text-decoration:none">
-            <img src="/Logo/Distributors/DigiKey.jpg" alt="DigiKey logo" width="130" height="58">
-     </a>     
-     <br>     
-    DigiKey Electronics distributes PTSolns products in 180+ countries. See the <a target="_blank" rel="noopener noreferrer" href="https://www.digikey.com/en/supplier-centers/ptsolns-pylon-technology-solutions">PTSolns DigiKey Vendor Page</a> for more details.
-    <br>
-    <br>
-    <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/m/PTSolns.html#/filter:ss_attr_manufacturer:PTSolns" style="text-decoration:none">
-            <img src="/Logo/Distributors/Jameco.jpg" alt="Jameco logo" width="130" height="58">
-     </a>     
-     <br>     
-    Jameco Electronics distributes PTSolns products within North America. See the <a target="_blank" rel="noopener noreferrer" href="https://www.jameco.com/m/PTSolns.html#/filter:ss_attr_manufacturer:PTSolns">PTSolns Jameco Vendor Page</a> for more details.
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00026-211</span>
+                <span class="product-trigger">NTEA-SM Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00026_NTEA-SM/Images/PTS-00026-211_Cover.jpg" alt="NTEA-SM Kit">
+                    <div class="popup-desc">Breakout Board BoB for Nano Development Board NTEA-SM Kit</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00026_NTEA-SM" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00026_NTEA-SM/Datasheets/Datasheet_PTS-00026_NTEA-SM_Kit.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00026_NTEA-SM/3D_Models/NTEA-SM_v1.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/ntea-sm" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/fh3fvpzv" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-breakout-board-bob-expansion-adapter-for-nano-microcontroller-development-board-nano-ntea-sm" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/3XSgRRk" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/5J22Fhe" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
 
-	<br>
-    <br>
-    <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/collections/ptsolns" style="text-decoration:none">
-            <img src="/Logo/Distributors/RobotShop.jpg" alt="RobotShop logo" width="130" height="58">
-     </a>     
-     <br>   
-	RobotShop distributes PTSolns products in 180+ countries. See the <a target="_blank" rel="noopener noreferrer" href="https://www.robotshop.com/collections/ptsolns">PTSolns RobotShop Vendor Page</a> for more details.
-	 
-	 	 
-    <br>
-    <br>
-    <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.ca/ptsolns" style="text-decoration:none">
-            <img src="/Logo/Distributors/Amazon_ca.jpg" alt="Amazon CA logo" width="130" height="58">
-     </a>     
-     <br>     
-    Amazon Canada distributes PTSolns products within Canada. See the <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.ca/ptsolns">PTSolns Amazon Canada Storefront</a> for more details.
-    <br>
-    <br>
-	<a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/stores/PylonTechnologySolutions/page/F6F49188-3463-4718-97CA-01229431C7BA" style="text-decoration:none">
-            <img src="/Logo/Distributors/Amazon_com.jpg" alt="Amazon COM logo" width="130" height="58">
-     </a>     
-     <br>     
-    Amazon US distributes PTSolns products within USA. See the <a target="_blank" rel="noopener noreferrer" href="https://www.amazon.com/stores/PylonTechnologySolutions/page/F6F49188-3463-4718-97CA-01229431C7BA">PTSolns Amazon US Storefront</a> for more details.
-    <br>
-    <br>
-    <h2><u>Certifications</u></h2> 
-    Various product certifications can be found <a target="_blank" rel="noopener noreferrer" href="https://cert.ptsolns.com/">here</a>.
-    <br>
-    <br>
-    <br>
-</div>
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00028-211</span>
+                <span class="product-trigger">NTEA-MD Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00028_NTEA-MD/Images/PTS-00028-211_Cover.jpg" alt="NTEA-MD Kit">
+                    <div class="popup-desc">Breakout Board BoB for Nano Development Board NTEA-MD Kit</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00028_NTEA-MD" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00028_NTEA-MD/Datasheets/Datasheet_PTS-00021_26_28_NTEA-Series_Kit.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00028_NTEA-MD/3D_Models/NTEA-MD_v1.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/ntea-md" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/q9z5h4wf" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-breakout-board-kit-for-nano-development-board-ntea-md" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/hfdsFRs" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/3ojoRsy" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
 
-	<footer>
-	  <br>
-	  <hr>
-	  &nbsp &nbsp &nbsp<a target="_blank" rel="noopener noreferrer" href="https://ptsolns.com/pages/contact" style="text-decoration:none">Contact Us</a>
-	  <br>
-	  <br>
-	  &nbsp &nbsp &nbsp© 2026, PTSolns Pylon Technology Solutions Ltd.
-	</footer>
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00075-201</span>
+                <span class="product-trigger">Proto-Full
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/Images/PTS-00075-201_Cover.jpg" alt="Proto-Full">
+                    <div class="popup-desc">General Purpose Through Hole Prototyping Board Proto-Full</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00075_Proto-Full" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/Datasheets/Datasheet_PTS-00075_Proto-Full.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/3D_Models/Proto-Full_v2.1.step" target="_blank" class="action-btn">3D Model</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00075_Proto-Full/Fritzing_Models/Proto-Full_V2.1.fzpz" target="_blank" class="action-btn">Fritzing Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/proto-full" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/7wqm3jhv" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-proto-full-pcb" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/3iSvzrg" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/60oQhc3" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
 
-	<script>
-	document.addEventListener('DOMContentLoaded', function() {
-	  document.querySelectorAll('a, button').forEach(function(el) {
-		el.addEventListener('click', function() {
-		  const href = el.getAttribute('href') || '';
-		  const label = el.textContent.trim() || href || 'unnamed';
-		  const category =
-			href.startsWith('http') && !href.includes(location.hostname) ? 'External Link' :
-			href.match(/\.(pdf|zip|exe)$/i) ? 'Download' :
-			'Internal Link';
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00079-201</span>
+                <span class="product-trigger">Proto-Half
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/Images/PTS-00079-201_Cover.jpg" alt="Proto-Half">
+                    <div class="popup-desc">General Purpose Through Hole Prototyping Board Proto-Half</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00079_Proto-Half" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/Datasheets/Datasheet_PTS-00079_Proto-Half.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/3D_Models/Proto-Half_v2.1.step" target="_blank" class="action-btn">3D Model</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00079_Proto-Half/Fritzing_Models/Proto-Half_v2.1.fzpz" target="_blank" class="action-btn">Fritzing Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/proto-half" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/mmp35jz3" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-proto-half-basic-prototyping-breadboard" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/3sVBzpQ" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/fm7GE2p" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
 
-		  gtag('event', 'click', {
-			'event_category': category,
-			'event_label': label + ' (' + href + ')'
-		  });
-		});
-	  });
-	});
-	</script>
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00099-201</span>
+                <span class="product-trigger">ESP Master Key
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Images/PTS-00099-201_Cover.jpg" alt="ESP Master Key">
+                    <div class="popup-desc">Adapter for Common Development Boards ESP Master Key</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00099_ESP_Master_Key" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Datasheets/Datasheet_PTS-00099_ESP_Master_Key.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/3D_Models/ESP_Master_Key_v2.1.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/esp-master-key" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/49b5rctm" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-esp-master-key" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/d69tky3" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/38auEIb" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
 
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00099-211</span>
+                <span class="product-trigger">ESP Master Key Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Images/PTS-00099-211_Cover.jpg" alt="ESP Master Key Kit">
+                    <div class="popup-desc">Adapter for Common Development Boards ESP Master Key Kit</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00099_ESP_Master_Key" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/Datasheets/Datasheet_PTS-00099_ESP_Master_Key_Kit.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00099_ESP_Master_Key/3D_Models/ESP_Master_Key_v2.1.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/esp-master-key" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/h9hjzqtn" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-esp-master-key-kit" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/d69tky3" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/38auEIb" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00134-001</span>
+                <span class="product-trigger">Screwdriver Set
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00134_Screwdriver_Set/Images/PTS-00134-001_Cover.jpg" alt="Screwdriver Set">
+                    <div class="popup-desc">Precision S2 Magnetic 25-in-1 Screwdriver Set</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00134_Screwdriver_Set" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00134_Screwdriver_Set/Datasheets/Datasheet_PTS-00134_Screwdriver_Set.pdf" target="_blank" class="action-btn">Datasheet</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/screwdriver-set" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/nchmvnff" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-precision-s2-magnetic-25-in-1-screwdriver-set" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/hICkP8T" target="_blank" class="action-btn">Amazon.ca</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00135-201</span>
+                <span class="product-trigger">Proto-N2RF
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00135_Proto-N2RF/Images/PTS-00135-201_Cover.jpg" alt="Proto-N2RF">
+                    <div class="popup-desc">Nano and nRF24L01+ Through Hole Prototyping Board</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00135_Proto-N2RF" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00135_Proto-N2RF/Datasheets/Datasheet_PTS-00135_Proto-N2RF.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00135_Proto-N2RF/3D_Models/Proto-N2RF_v2.1.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/proto-n2rf" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/32bvbcmr" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-prototyping-solderable-breadboard-pcb" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://www.amazon.ca/dp/B09PY4RHPL" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/54WxbXr" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00137-211</span>
+                <span class="product-trigger">LoRa Key Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00137_LoRa_Key/Images/PTS_00137_211_Cover.JPG" alt="LoRa Key Kit">
+                    <div class="popup-desc">Breakout Board BoB for Common LoRa Modules LoRa Key Kit</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00137_LoRa_Key" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00137_LoRa_Key/Datasheets/Datasheet_PTS-00137_LoRa_Key_Kit.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00137_LoRa_Key/3D_Models/LoRa_Key_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/lora-key" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/b8ccd27v" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-breakout-board-for-common-lora-module-key-kit" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/4mm6Ihe" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/3NYFrLK" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00153-211</span>
+                <span class="product-trigger">Proto-Shield Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/Images/PTS-00153-211_Cover.jpg" alt="Proto-Shield Kit">
+                    <div class="popup-desc">Prototyping Shield for Uno Boards Proto-Shield Kit</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00153_Proto-Shield" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/Datasheets/Datasheet_PTS-00153_Proto-Shield.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/3D_Models/Proto-Shield_V2.0.step" target="_blank" class="action-btn">3D Model</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00153_Proto-Shield/Fritzing_Models/Proto-Shield_V2.0.fzpz" target="_blank" class="action-btn">Fritzing Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/proto-shield" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/vb8m5dh5" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-prototype-pcb-microcontroller-shield-for-arduino-uno" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/iAF4IGx" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/h029sfj" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00154-211</span>
+                <span class="product-trigger">NRF-Shield Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00154_NRF-Shield/Images/PTS-00154-211_Cover.jpg" alt="NRF-Shield Kit">
+                    <div class="popup-desc">nRF24L01+ RF Shield for Uno Boards NRF-Shield Kit</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00154_NRF-Shield" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00154_NRF-Shield/Datasheets/Datasheet_PTS-00154_NRF-Shield.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00154_NRF-Shield/3D_Models/NRF-Shield_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/nrf-shield" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/vn0ffcm0" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-prototype-pcb-microcontroller-shield-for-arduino-uno-nrf-shield-basic" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/aAptIoB" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/h029sfj" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00155-211</span>
+                <span class="product-trigger">ESP BoB Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00155_ESP_BoB/Images/PTS-00155-211_Cover.jpg" alt="ESP BoB Kit">
+                    <div class="popup-desc">Breakout Board BoB for common ESP Based Boards ESP BoB Kit</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00155_ESP_BoB" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00155_ESP_BoB/Datasheets/Datasheet_PTS-00155_ESP_BoB_Kit.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00155_ESP_BoB/3D_Models/ESP_BoB_v1.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/esp-bob" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/fp18qznv" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-esp-bob-kit" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://www.amazon.ca/dp/B0DTJLTYV5" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/eYfZE2o" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00156-211</span>
+                <span class="product-trigger">Interface Shield Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00156_Interface-Shield/Images/PTS-00156-211_Cover.jpg" alt="Interface Shield Kit">
+                    <div class="popup-desc">LCD Button LED Shield for Uno Boards</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00156_Interface-Shield" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00156_Interface-Shield/Datasheets/Datasheet_PTS-00156_Interface-Shield_Kit.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00156_Interface-Shield/3D_Models/Interface_Shield_v1.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/interface-shield" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/43hbv424" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-1602-lcd-interface-shield-kit-uno" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://www.amazon.ca/dp/B0C9S4C665" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/ahM62fI" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00157-201</span>
+                <span class="product-trigger">Pico Base
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00157_Pico_Base/Images/PTS-00157-201_Cover.jpg" alt="Pico Base">
+                    <div class="popup-desc">Expansion Board for RPi Pico Family</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00157_Pico_Base" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00157_Pico_Base/Datasheets/Datasheet_PTS-00157_Pico_Base.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00157_Pico_Base/3D_Models/Pico_Base_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/pico-base" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/0vb91p93" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-raspberry-pi-pico-expansion-board" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/fzfQ0qT" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/cmVAZMc" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00158-201</span>
+                <span class="product-trigger">Pico Base Proto
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00158_Pico_Base_Proto/Images/PTS-00158-201_Cover.jpg" alt="Pico Base Proto">
+                    <div class="popup-desc">Expansion Board for RPi Pico Family + Proto</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00158_Pico_Base_Proto" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00158_Pico_Base_Proto/Datasheets/Datasheet_PTS-00158_Pico_Base_Proto.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00158_Pico_Base_Proto/3D_Models/Pico_Base_Proto_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/pico-base-proto" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/8414w459" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-raspberry-pi-pico-expansion-board-pico-base-proto" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/dpJ86eG" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/2SmHAdy" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00165-211</span>
+                <span class="product-trigger">ESP32 microWatt Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/Images/PTS-00165_211_Cover.JPG" alt="ESP32 microWatt Kit">
+                    <div class="popup-desc">ESP32 Microcontroller Development Board</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00165_ESP32_microWatt" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/Datasheets/Datasheet_PTS-00165_ESP32_microWatt.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/3D_Models/ESP32_microWatt_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00165_ESP32_microWatt/Fritzing_Models/PTSolns-ESP32-microWatt-V2-0.fzpz" target="_blank" class="action-btn">Fritzing Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/esp32-microwatt" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/945dfh9n" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-esp32-microwatt-development-board-microcontroller" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/gjVCNsN" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/2cqJ98p" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00166-211</span>
+                <span class="product-trigger">I2C Backpack Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00166_I2C_Backpack/Images/PTS-00166-211_Cover.jpg" alt="I2C Backpack Kit">
+                    <div class="popup-desc">I2C QWIIC Backpack for 16-Pin 1602 / 2004 LCD</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00166_I2C_Backpack" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00166_I2C_Backpack/Datasheets/Datasheet_PTS-00166_I2C_Backpack_Kit.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00166_I2C_Backpack/3D_Models/PTSolns_I2C_Backpack_V1.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/i2c-backpack" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/zw82d2v9" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-i2c-backpack-1602-2004-lcd-kit" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://www.amazon.ca/dp/B0CQF2Z7Q9" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/gKBK2Mr" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00194-201</span>
+                <span class="product-trigger">Uno R3+
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/Images/PTS-00194-201_Cover.jpg" alt="Uno R3+">
+                    <div class="popup-desc">Uno ATmega328P Microcontroller Development Board</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00194_Uno_R3_Plus" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/Datasheets/Datasheet_PTS-00194_Uno_R3_plus.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/3D_Models/Uno_R3.step" target="_blank" class="action-btn">3D Model</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00194_Uno_R3_Plus/Fritzing_Models/Uno-R3-V2-1.fzpz" target="_blank" class="action-btn">Fritzing Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/uno-r3" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/1b9r278n" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-uno-r3-atmega328p-microcontroller-development-board-arduino-compatible" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/7z8PehF" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/3JRyJYS" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00196-201</span>
+                <span class="product-trigger">Nano Flip
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/Images/PTS-00196-201_Cover.jpg" alt="Nano Flip">
+                    <div class="popup-desc">Nano ATmega328P Microcontroller Development Board</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00196_Nano_Flip" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/Datasheets/Datasheet_PTS-00196_Nano_Flip.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/3D_Models/Nano_Flip_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00196_Nano_Flip/Fritzing_Models/Nano-Flip-V2-0.fzpz" target="_blank" class="action-btn">Fritzing Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/nano-flip" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/v8v4tp9c" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-nano-flip-microcontroller-based-on-atmega328p-arduino-nano-compatible" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://www.amazon.ca/dp/B0DBMVYP39" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/dedJMst" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00198-211</span>
+                <span class="product-trigger">Pico BoB Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00198_Pico_BoB/Images/PTS-00198-211_Cover.jpg" alt="Pico BoB Kit">
+                    <div class="popup-desc">Breakout Board BoB for RPi Pico Boards</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00198_Pico_BoB" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00198_Pico_BoB/Datasheets/Datasheet_PTS-00198_Pico_BoB.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00198_Pico_BoB/3D_Models/Pico_BoB.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/pico-bob" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/qn7dd00b" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-pico-bob-kit" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/510fJOw" target="_blank" class="action-btn">Amazon.ca</a>
+                  <a href="https://a.co/d/bUdzomC" target="_blank" class="action-btn">Amazon.com</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00199-211</span>
+                <span class="product-trigger">microWatt Proto Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00199_microWatt_Proto/Images/PTS-00199-211_Cover.JPG" alt="MicroWatt Proto Kit">
+                    <div class="popup-desc">Prototyping board with central rails for ESP32 microWatt</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00199_microWatt_Proto" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00199_microWatt_Proto/Datasheets/Datasheet_PTS-00199_microWatt_Proto.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00199_microWatt_Proto/3D_Models/microWatt_Proto_V1.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/microwatt-proto" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/wnbvz9tf" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-microwatt-proto-kit" target="_blank" class="action-btn">RobotShop</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00204-211</span>
+                <span class="product-trigger">RTC MicroSD Shield Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00204_RTC_MicroSD_Shield/Images/PTS-00204-211_Cover.JPG" alt="RTC MicroSD Shield Kit">
+                    <div class="popup-desc">Data logging shield with RTC, EEPROM and SD card reader</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00204_RTC_MicroSD_Shield" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00204_RTC_MicroSD_Shield/Datasheets/Datasheet_PTS-00204_RTC_MicroSD_Shield.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00204_RTC_MicroSD_Shield/3D_Models/RTC_MicroSD_Shield_V1.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/rtc-microsd-shield" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/wtf74d72" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-rtc-microsd-data-logging-shield-uno-arduino-compatible" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/bhnUeKR" target="_blank" class="action-btn">Amazon.ca</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00205-201</span>
+                <span class="product-trigger">Nano Flip 3V3
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00205_Nano_Flip_3V3/Images/PTS-00205-201_Cover.jpg" alt="Nano Flip 3V3">
+                    <div class="popup-desc">3.3V Nano ATmega328P Microcontroller Development Board</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00205_Nano_Flip_3V3" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00205_Nano_Flip_3V3/Datasheets/Datasheet_PTS-00205_Nano_Flip_3V3.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00205_Nano_Flip_3V3/3D_Models/Nano_Flip_3V3_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00205_Nano_Flip_3V3/Fritzing_Models/Nano-Flip-3V3-V2-0.fzpz" target="_blank" class="action-btn">Fritzing Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/nano-flip-3v3" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/c790jz4p" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-nano-flip-3v3-microcontroller-atmega328p-dev-board-33v-logic-level-arduino-nano-compatible" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/exXNtyl" target="_blank" class="action-btn">Amazon.ca</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00206-201</span>
+                <span class="product-trigger">Proto-ESP
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00206_Proto-ESP/Images/PTS-00206-201_Cover.JPG" alt="Proto-ESP">
+                    <div class="popup-desc">Prototyping board with ESP-based dev board interface</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00206_Proto-ESP" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00206_Proto-ESP/Datasheets/Datasheet_PTS-00206_Proto-ESP.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00206_Proto-ESP/3D_Models/Proto-ESP_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/proto-esp" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/short/17jhjdpj" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-proto-esp-prototyping-solderable-breadboard-esp32-esp8266" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/6zVmeZT" target="_blank" class="action-btn">Amazon.ca</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00207-201</span>
+                <span class="product-trigger">LoRa SX1276 915MHz Shield
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00207_LoRa_SX1276_915MHz_Shield/Images/PTS-00207_Cover.JPG" alt="LoRa SX1276">
+                    <div class="popup-desc">LoRa SX1276 915MHz Shield for Uno</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00207_LoRa_SX1276_915MHz_Shield" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00207_LoRa_SX1276_915MHz_Shield/Datasheets/Datasheet_PTS-00207_LoRa_SX1276_915MHz_Shield.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00207_LoRa_SX1276_915MHz_Shield/3D_Models/LoRa_SX1276_915MHz_Shield_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/lora-sx1276-915mhz-shield" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.com/en/products/detail/ptsolns/PTS-00207-201/29184496" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.robotshop.com/products/ptsolns-lora-sx1276-915mhz-shield?qd=e7933f58c7f25e075808974a6ebf76a5" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/6b3sbft" target="_blank" class="action-btn">Amazon.ca</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00210-211</span>
+                <span class="product-trigger">USB-UART Bridge Kit
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00210_USB-UART_Bridge/Images/PTS-00210-211_Cover.jpg" alt="USB-UART Bridge">
+                    <div class="popup-desc">5V and 3.3V USB-to-UART Bridge</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00210_USB-UART_Bridge" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00210_USB-UART_Bridge/Datasheets/Datasheet_PTS-00210_USB_UART_Bridge.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00210_USB-UART_Bridge/3D_Models/USB-UART_Bridge_v1.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/usb-uart-bridge" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.robotshop.com/products/ptsolns-usb-uart-bridge-u2b-serial-adapter-ch340-5v-33v-programming-module" target="_blank" class="action-btn">RobotShop</a>
+                  <a href="https://a.co/d/0cMWhFc" target="_blank" class="action-btn">Amazon.ca</a>
+                </div></div>
+              </div>
+            </div>
+
+            <div class="item searchable-item">
+              <div class="item-header">
+                <span class="sku">PTS-00211-201</span>
+                <span class="product-trigger">Leonardo+
+                  <div class="hover-popup">
+                    <img src="https://docs.ptsolns.com/Products/PTS-00211_Leonardo_Plus/Images/PTS-00211_201_Cover.JPG" alt="Leonardo+">
+                    <div class="popup-desc">Leonardo ATmega32U4 Microcontroller Development Board</div>
+                  </div>
+                </span>
+              </div>
+              <div class="link-group-container">
+                <div class="link-row"><span class="group-label">Docs:</span><div class="btn-wrap">
+                  <a href="https://github.com/PTSolns/docs/tree/main/Products/PTS-00211_Leonardo_Plus" target="_blank" class="action-btn">GitHub</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00211_Leonardo_Plus/Datasheets/Datasheet_PTS-00211_Leonardo_plus.pdf" target="_blank" class="action-btn">Datasheet</a>
+                  <a href="https://docs.ptsolns.com/Products/PTS-00211_Leonardo_Plus/3D_Models/Leonardo_Plus_v2.0.step" target="_blank" class="action-btn">3D Model</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Product Page:</span><div class="btn-wrap">
+                  <a href="https://ptsolns.com/products/leonardo_plus" target="_blank" class="action-btn">PTSolns</a>
+                </div></div>
+                <div class="link-row"><span class="group-label">Distributors:</span><div class="btn-wrap">
+                  <a href="https://www.digikey.ca/en/products/detail/ptsolns/PTS-00211-201/29271272" target="_blank" class="action-btn">DigiKey</a>
+                  <a href="https://www.amazon.ca/dp/B0GRTLXPQR" target="_blank" class="action-btn">Amazon.ca</a>
+                </div></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="grid grid-3col" style="margin-top:0;">
+        <section class="card">
+          <div class="top">
+            <h2>Custom Product Libraries</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: 14px; margin-top:0; color: var(--muted);">Install through the <a href="https://ptsolns.com/pages/ptsolns-ide" target="_blank" style="color:var(--accent);">PTSolns IDE</a> or manually download from GitHub.</p>
+            <ul class="custom-links" id="libraryList">
+              <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_microWatt" target="_blank">PTSolns_microWatt</a></li>
+              <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_I2CBackpack" target="_blank">PTSolns_I2CBackpack</a></li>
+              <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_InterfaceShield" target="_blank">PTSolns_InterfaceShield</a></li>
+              <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_PicoBase" target="_blank">PTSolns_PicoBase</a></li>
+              <li class="searchable-item"><a href="https://github.com/PTSolns/BMx280" target="_blank">BMx280 (BMP280, BME280)</a></li>
+              <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_AHTx" target="_blank">PTSolns_AHTx (AHT20)</a></li>
+              <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_VEML7700" target="_blank">PTSolns_VEML7700</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="top">
+            <h2>Tinker Thoughts Blog - TTB</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: 14px; margin-top:0; color: var(--muted);">Read the latest on the <a href="https://ptsolns.com/blogs/tinker-thoughts" target="_blank" style="color:var(--accent);">Tinker Thoughts Blog</a>.</p>
+            <details>
+              <summary>Click to expand full article list</summary>
+              <ul class="custom-links" id="blogList">
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb-1-guest-post-making-the-clapper-basic-project" target="_blank">TTB #1: Making The Clapper</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb2-guest-post-adjustable-resistive-load-for-5vdc-1000ma-applications" target="_blank">TTB #2: Adjustable Resistive Load</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb3-guest-post-the-nano-that-wanted-to-be-an-uno" target="_blank">TTB #3: The Nano That Wanted to Be an Uno</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb4-custom-24-hour-single-revolution-clock" target="_blank">TTB #4: Custom 24-Hour Single Revolution Clock</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb5-guest-post-making-a-simple-rf-network" target="_blank">TTB #5: Making a Simple RF Network</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb6-guest-post-changing-bootloader-on-a-nano-using-a-custom-shield" target="_blank">TTB #6: Changing Bootloader on a Nano</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb7-how-to-verify-the-clock-source-on-a-nano" target="_blank">TTB #7: Verify the Clock Source on a Nano</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb8-can-a-3-3v-signal-reliably-switch-a-5v-relay-module" target="_blank">TTB #8: 3.3V Signal to 5V Relay Module</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb9-how-to-install-brass-heat-set-inserts-in-3d-printed-parts" target="_blank">TTB #9: Brass Heat Set Inserts in 3D Prints</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb10-why-your-usb-c-cable-wont-program-your-microcontroller" target="_blank">TTB #10: Why Your USB-C Cable Won't Program</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb11-introducing-ptsolns-gpt" target="_blank">TTB #11: Introducing PTSolns-GPT</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb12-non-compliant-use-of-ch340-v3-pin-deep-dive-for-engineers" target="_blank">TTB #12: Non-Compliant Use of CH340 V3 Pin</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb13-pcb-trace-width-calculator" target="_blank">TTB #13: PCB Trace Width Calculator</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb14-testing-the-3-3v-pin-of-popular-nano-dev-boards" target="_blank">TTB #14: Testing the 3.3V Pin of Nano Dev Boards</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb15-guest-post-getting-started-with-the-esp32-microwatt-making-iot-projects" target="_blank">TTB #15: Getting Started with ESP32 microWatt</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb16-measuring-the-current-draw-on-bmp280-sensor-module" target="_blank">TTB #16: Current Draw on BMP280 Sensor Module</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb17-li-po-li-ion-battery-charging-calculator-with-bq24074" target="_blank">TTB #17: Battery Charging Calculator</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb18-guest-post-using-eeprom-on-the-nano-flip-to-make-a-button-logger" target="_blank">TTB #18: EEPROM on the Nano Flip</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb19-saving-a-broken-dev-board-with-a-usb-uart-bridge" target="_blank">TTB #19: Saving a Broken Dev Board</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb20-thermal-response-of-microcontrollers-during-deep-sleep-and-active-modes" target="_blank">TTB #20: Thermal Response of Microcontrollers</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb21-guest-post-yet-another-way-to-verify-the-clock-source-on-a-dev-board" target="_blank">TTB #21: Yet Another Way to Verify Clock Source</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb22-the-i2c-mode-of-the-hc-sr04-ultrasonic-sensor" target="_blank">TTB #22: I2C Mode of the HC-SR04</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb23-powering-a-9g-360-servo-motor-directly-from-a-nano-dev-board" target="_blank">TTB #23: Powering a 9g Servo Motor</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb24-reversing-the-polarity-on-lipo-battery-jst-connectors" target="_blank">TTB #24: Reversing Polarity on LiPo JST</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb25-giving-life-to-an-old-digit-display" target="_blank">TTB #25: Giving Life to an OLD Digit Display</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb26-hacking-a-cuckoo-clock" target="_blank">TTB #26: Hacking a Cuckoo Clock</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb27-node-to-node-lora-network" target="_blank">TTB #27: Node-to-Node LoRa Network</a></li>
+                <li class="searchable-item"><a href="https://ptsolns.com/blogs/tinker-thoughts/ttb28-node-to-gateway-lora-network" target="_blank">TTB #28: Node-to-Gateway LoRa Network</a></li>
+              </ul>
+            </details>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="top">
+            <h2>Certifications</h2>
+          </div>
+          <div class="content">
+            <p style="font-size: 14px; margin-top:0; color: var(--muted);">View product certifications on our dedicated portal.</p>
+            <ul class="custom-links">
+              <li><a href="https://cert.ptsolns.com/" target="_blank">PTSolns Certifications Portal</a></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="grid grid-2col" style="margin-top:0;">
+        <section class="card">
+          <div class="top"><h2>Connect with Us</h2></div>
+          <div class="content">
+            <ul class="social-links">
+              <li><a href="http://eepurl.com/hnESjL" target="_blank"><i class="fas fa-envelope"></i>Newsletter Signup</a></li>
+              <li><a href="https://www.youtube.com/@ptsolns" target="_blank"><i class="fab fa-youtube"></i>YouTube</a></li>
+              <li><a href="https://www.linkedin.com/company/ptsolns" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/ptsolns" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
+              <li><a href="https://www.facebook.com/PTSolns" target="_blank"><i class="fab fa-facebook"></i>Facebook</a></li>
+              <li><a href="https://x.com/ptsolns" target="_blank"><i class="fab fa-x-twitter"></i>X (Twitter)</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="top"><h2>Distributors</h2></div>
+          <div class="content" style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="https://www.digikey.com/en/supplier-centers/ptsolns-pylon-technology-solutions" target="_blank">
+                <img src="/Logo/Distributors/DigiKey.jpg" alt="DigiKey" width="110" style="border-radius:6px;">
+              </a>
+              <a href="https://www.robotshop.com/collections/ptsolns" target="_blank">
+                <img src="/Logo/Distributors/RobotShop.jpg" alt="RobotShop" width="110" style="border-radius:6px;">
+              </a>
+              <a href="https://www.amazon.ca/ptsolns" target="_blank">
+                <img src="/Logo/Distributors/Amazon_ca.jpg" alt="Amazon CA" width="110" style="border-radius:6px;">
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://ptsolns.com/pages/contact" target="_blank">Contact Us</a>
+    <br><br>
+    &copy; 2026, PTSolns Pylon Technology Solutions Ltd.
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('searchInput');
+      const searchableItems = document.querySelectorAll('.searchable-item');
+      const itemCountDisplay = document.getElementById('itemCount');
+
+      let initialCount = 0;
+      searchableItems.forEach(item => {
+        if (item.classList.contains('item')) initialCount++;
+      });
+      if (itemCountDisplay) {
+        itemCountDisplay.textContent = initialCount + ' ITEM' + (initialCount !== 1 ? 'S' : '');
+      }
+
+      searchInput.addEventListener('input', function(e) {
+        const term = e.target.value.toLowerCase();
+        let visibleProducts = 0;
+
+        searchableItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          
+          if (term === '') {
+            item.style.display = '';
+            if (item.classList.contains('item')) visibleProducts++;
+            const parentDetails = item.closest('details');
+            if (parentDetails) parentDetails.removeAttribute('open');
+          } else if (text.includes(term)) {
+            item.style.display = '';
+            if (item.classList.contains('item')) visibleProducts++;
+            const parentDetails = item.closest('details');
+            if (parentDetails) parentDetails.setAttribute('open', '');
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        if(itemCountDisplay) {
+            itemCountDisplay.textContent = visibleProducts + ' ITEM' + (visibleProducts !== 1 ? 'S' : '');
+        }
+      });
+
+      document.querySelectorAll('a, button').forEach(function(el) {
+        el.addEventListener('click', function() {
+          const href = el.getAttribute('href') || '';
+          const label = el.textContent.trim() || href || 'unnamed';
+          const category =
+            href.startsWith('http') && !href.includes(location.hostname) ? 'External Link' :
+            href.match(/\.(pdf|zip|exe)$/i) ? 'Download' :
+            'Internal Link';
+
+          gtag('event', 'click', {
+            'event_category': category,
+            'event_label': label + ' (' + href + ')'
+          });
+        });
+      });
+    });
+  </script>
 </body>
-<style>
-summary {
-  cursor: pointer;
-  padding: 6px 12px;
-  border: 1px solid #000;
-  display: inline-block;
-  user-select: none;
-}
-summary::marker {
-  display: none;
-}
-</style>
 </html>
