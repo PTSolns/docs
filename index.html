@@ -1163,6 +1163,24 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      
+      
+      const productGrid = document.getElementById('productGrid');
+      const products = Array.from(productGrid.querySelectorAll('.item'));
+
+      
+      products.sort((a, b) => {
+        const skuA = a.querySelector('.sku').textContent.trim();
+        const skuB = b.querySelector('.sku').textContent.trim();
+        return skuA.localeCompare(skuB); // Compares alphanumerically
+      });
+
+      
+      products.forEach(product => productGrid.appendChild(product));
+      
+
+      
+      
       const searchInput = document.getElementById('searchInput');
       const searchableItems = document.querySelectorAll('.searchable-item');
       const itemCountDisplay = document.getElementById('itemCount');
@@ -1202,6 +1220,7 @@
         }
       });
 
+      
       document.querySelectorAll('a, button').forEach(function(el) {
         el.addEventListener('click', function() {
           const href = el.getAttribute('href') || '';
