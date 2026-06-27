@@ -153,6 +153,35 @@
     footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--line); margin-top: 40px; font-size: 13px; color: var(--muted); }
     footer a { color: var(--accent); text-decoration: none; font-weight: 600;}
     footer a:hover { text-decoration: underline; }
+
+    /* I2Connect expandable entry — matches → arrow style of sibling links */
+    a.i2connect-toggle {
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      transition: color 0.2s;
+      user-select: none;
+    }
+    a.i2connect-toggle::before {
+      content: '→';
+      color: var(--accent);
+      display: inline-block;
+    }
+    a.i2connect-toggle::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 10px;
+      color: var(--muted);
+      transition: transform 0.2s ease;
+      margin-left: 2px;
+    }
+    a.i2connect-toggle:hover { color: var(--accent); }
+    a.i2connect-toggle.open::after { transform: rotate(180deg); }
+    a.i2connect-toggle.open { color: var(--accent); }
   </style>
 </head>
 
@@ -1053,9 +1082,16 @@
             <p style="font-size: 14px; margin-top:0; color: var(--muted);">Install through the <a href="https://ptsolns.com/pages/ptsolns-ide" target="_blank" style="color:var(--accent);">PTSolns IDE</a> or manually download from GitHub.</p>
             <ul class="custom-links" id="libraryList">
               <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_microWatt" target="_blank">PTSolns_microWatt</a></li>
+              
+              <li class="searchable-item i2connect-parent">
+                <a href="#" class="i2connect-toggle" onclick="toggleI2Connect(event)">I2Connect</a>
+                <ul class="custom-links i2connect-sub" style="display:none; padding-left: 18px; margin-top: 6px; border-left: 2px solid rgba(30,137,175,0.35);">
+                  <li class="searchable-item"><a href="https://github.com/PTSolns/I2Connect_AHT20" target="_blank">I2Connect_AHT20</a></li>
+                  <li class="searchable-item"><a href="https://github.com/PTSolns/I2Connect_EEPROM" target="_blank">I2Connect_EEPROM</a></li>
+                </ul>
+              </li>
               <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_I2CBackpack" target="_blank">PTSolns_I2CBackpack</a></li>
               <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_InterfaceShield" target="_blank">PTSolns_InterfaceShield</a></li>
-              <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_PicoBase" target="_blank">PTSolns_PicoBase</a></li>
               <li class="searchable-item"><a href="https://github.com/PTSolns/BMx280" target="_blank">BMx280 (BMP280, BME280)</a></li>
               <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_AHTx" target="_blank">PTSolns_AHTx (AHT20)</a></li>
               <li class="searchable-item"><a href="https://github.com/PTSolns/PTSolns_VEML7700" target="_blank">PTSolns_VEML7700</a></li>
@@ -1162,6 +1198,17 @@
     <br><br>
     &copy; 2026, PTSolns Pylon Technology Solutions Ltd.
   </footer>
+
+  <script>
+    function toggleI2Connect(e) {
+      e.preventDefault();
+      const toggle = e.currentTarget;
+      const sub = toggle.nextElementSibling;
+      const isOpen = sub.style.display !== 'none';
+      sub.style.display = isOpen ? 'none' : 'block';
+      toggle.classList.toggle('open', !isOpen);
+    }
+  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
