@@ -183,6 +183,22 @@
     a.i2connect-toggle:hover { color: var(--accent); }
     a.i2connect-toggle.open::after { transform: rotate(180deg); }
     a.i2connect-toggle.open { color: var(--accent); }
+    
+.badge-new {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #e11d48;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(225, 29, 72, 0.3);
+      letter-spacing: 0.5px;
+      z-index: 10;
+      pointer-events: none;
+    }
   </style>
 </head>
 
@@ -1283,6 +1299,7 @@
 
             <!-- New Product: I2Connect_ICP-20100 -->
             <div class="item searchable-item">
+              <span class="badge-new">NEW</span>
               <div class="item-header">
                 <span class="sku">PTS-00224-201</span>
                 <span class="product-trigger">I2Connect: ICP-20100
